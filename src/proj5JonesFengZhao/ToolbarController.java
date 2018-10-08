@@ -10,8 +10,10 @@ package proj5JonesFengZhao;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextInputDialog;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Optional;
 
 
@@ -33,23 +35,41 @@ class ToolbarController {
      * Will compile the code and print error codes in the terminal if necessary.
      * Otherwise, it will print compilation success.
      * @param curFile Reference to the currently selected file.
+     *
+     * @return compile successful or not
      */
-    void handleCompile(File curFile) throws IOException {
+    boolean handleCompile(File curFile) throws IOException {
 //        String path = curFile.getAbsoluteFile().getParent();
         String path = curFile.getAbsolutePath();
         System.out.println(path);
 
 //        String command[] = {"javac ", path, "*.java"};
-        ProcessBuilder pb = new ProcessBuilder("javac", path);
+
+
+
+        try {
+            ProcessBuilder pb = new ProcessBuilder("javac", path);
 
 //        System.out.println(command);
 
-        Process process = pb.start();
+            Process process = pb.start();
 
-        // Check if any errors or compilation errors encounter then print on Console.
-        if (process.getErrorStream().read() != -1) {
-            System.out.println("Compilation Errors " + process.getErrorStream());
+            BufferedReader br=new BufferedReader(
+                    new InputStreamReader(
+                            process.getInputStream()));
+            String line;
+            while((line=br.readLine())!=null){
+                System.out.println(line);
+            }
+            return true;
+        } catch (Exception ex) {
+            System.out.println(ex);
+            return false;
         }
+        // Check if any errors or compilation errors encounter then print on Console.
+//        if (process.getErrorStream().read() != -1) {
+//            System.out.println("Compilation Errors " + process.getErrorStream());
+//        }
 
         // Check if javac process execute successfully or Not
         //  0 - successful
@@ -75,11 +95,42 @@ class ToolbarController {
      * Will compile the code and print error codes in the terminal if necessary.
      * Otherwise, it will print compilation success.
      * If code compiles successfully, the code will be run.
-     * @param compileRunButton Reference to the Compile and Run Button initialized in
-     *                         Main.fxml
+     * @param curFile
      */
-    void handleCompileRun(Button compileRunButton) {
+    void handleCompileRun(File curFile) {
         System.out.println("Code is compiling and running");
+
+        try{
+
+        boolean compiled = handleCompile(curFile);
+            if(compiled == true){
+                try {
+                    ProcessBuilder pb = new ProcessBuilder("java", "BST.class");
+
+//        System.out.println(command);
+
+                    Process process = pb.start();
+
+                    BufferedReader br=new BufferedReader(
+                            new InputStreamReader(
+                                    process.getInputStream()));
+                    String line;
+                    while((line=br.readLine())!=null){
+                        System.out.println(line);
+                    }
+
+                } catch (Exception ex) {
+                    System.out.println(ex);
+
+                }
+            }
+        }
+        catch (IOException e){
+            System.out.println(e);
+        }
+
+
+
     }
 
     /**

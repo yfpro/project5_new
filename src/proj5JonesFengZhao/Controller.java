@@ -250,8 +250,10 @@ public class Controller {
      */
     @FXML
     private void handleCompileRun(){
-        toolbarController.handleCompileRun(compileRunButton);
-    }
+
+        File curFile = getCurrentFile();
+        System.out.println(curFile);
+        if (curFile != null) toolbarController.handleCompileRun(curFile);    }
 
     /**
      * Handles the Stop button action.
