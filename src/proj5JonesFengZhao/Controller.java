@@ -16,6 +16,7 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.stage.Stage;
 import org.fxmisc.richtext.CodeArea;
+import org.fxmisc.richtext.StyleClassedTextArea;
 
 import java.io.File;
 import java.io.IOException;
@@ -63,6 +64,8 @@ public class Controller {
     private Button compileRunButton;
     @FXML
     private Button stopButton;
+    @FXML
+    private StyleClassedTextArea console;
 
     @FXML
     private Stage primaryStage;
@@ -233,7 +236,7 @@ public class Controller {
 //        Tab curTab = tabPane.getSelectionModel().getSelectedItem();
         File curFile = getCurrentFile();
         System.out.println(curFile);
-        if (curFile != null) toolbarController.handleCompile(curFile);
+        if (curFile != null) toolbarController.handleCompile(curFile, console);
     }
 
 
@@ -253,7 +256,8 @@ public class Controller {
 
         File curFile = getCurrentFile();
         System.out.println(curFile);
-        if (curFile != null) toolbarController.handleCompileRun(curFile);    }
+        if (curFile != null) toolbarController.handleCompileRun(curFile, console);
+    }
 
     /**
      * Handles the Stop button action.

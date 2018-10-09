@@ -9,11 +9,14 @@ package proj5JonesFengZhao;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.TextInputDialog;
+import org.fxmisc.richtext.StyleClassedTextArea;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Optional;
 
 
@@ -38,7 +41,7 @@ class ToolbarController {
      *
      * @return compile successful or not
      */
-    boolean handleCompile(File curFile) throws IOException {
+    boolean handleCompile(File curFile, StyleClassedTextArea console) throws IOException {
 //        String path = curFile.getAbsoluteFile().getParent();
         String path = curFile.getAbsolutePath();
         System.out.println(path);
@@ -46,13 +49,18 @@ class ToolbarController {
 //        String command[] = {"javac ", path, "*.java"};
 
 
-
         try {
             ProcessBuilder pb = new ProcessBuilder("javac", path);
+            pb.redirectErrorStream(true);
+
+            File log = new File("./log.txt");
+            pb.redirectOutput(log);
 
 //        System.out.println(command);
 
             Process process = pb.start();
+            console.appendText(getFileContent(log));
+
 
             BufferedReader br=new BufferedReader(
                     new InputStreamReader(
@@ -97,19 +105,29 @@ class ToolbarController {
      * If code compiles successfully, the code will be run.
      * @param curFile
      */
-    void handleCompileRun(File curFile) {
+    void handleCompileRun(File curFile, StyleClassedTextArea console) {
         System.out.println("Code is compiling and running");
+        String path = curFile.getAbsoluteFile().getParent();
+
 
         try{
 
-        boolean compiled = handleCompile(curFile);
+            boolean compiled = handleCompile(curFile, console);
             if(compiled == true){
                 try {
-                    ProcessBuilder pb = new ProcessBuilder("java", "BST.class");
+
+                    ProcessBuilder pb = new ProcessBuilder("java", path, "/Main.class");
+                    pb.redirectErrorStream(true);
+
+                    File log = new File("./log.txt");
+                    pb.redirectOutput(log);
+
 
 //        System.out.println(command);
 
                     Process process = pb.start();
+                    console.appendText(getFileContent(log));
+
 
                     BufferedReader br=new BufferedReader(
                             new InputStreamReader(
@@ -140,5 +158,19 @@ class ToolbarController {
      */
     void handleStop(Button stopButton) {
         System.out.println("Running code is stopping");
+    }
+
+
+    private String getFileContent(File file) {
+        String content = "";
+        try {
+            content = new String(Files.readAllBytes(Paths.get(file.toURI())));
+        } catch (IOException e) {
+            UserErrorDialog userErrorDialog = new UserErrorDialog(
+                    UserErrorDialog.ErrorType.READING_ERROR, file.getName());
+            userErrorDialog.showAndWait();
+
+        }
+        return content;
     }
 }

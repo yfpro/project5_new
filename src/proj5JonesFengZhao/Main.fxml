@@ -124,7 +124,7 @@ Date: 10/12/18
     <SplitPane dividerPositions="0.8" orientation="VERTICAL" VBox.vgrow="ALWAYS">
         <TabPane fx:id="tabPane" VBox.vgrow="ALWAYS">
         </TabPane>
-        <StyleClassedTextArea>
+        <StyleClassedTextArea fx:id="console">
         </StyleClassedTextArea>
     </SplitPane>
 </VBox>
