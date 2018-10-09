@@ -11,10 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextInputDialog;
 import org.fxmisc.richtext.StyleClassedTextArea;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Optional;
@@ -41,62 +38,47 @@ class ToolbarController {
      *
      * @return compile successful or not
      */
-    boolean handleCompile(File curFile, StyleClassedTextArea console) throws IOException {
-//        String path = curFile.getAbsoluteFile().getParent();
+    boolean handleCompile(File curFile, IOConsole console) throws IOException {
         String path = curFile.getAbsolutePath();
         System.out.println(path);
-
-//        String command[] = {"javac ", path, "*.java"};
 
 
         try {
             ProcessBuilder pb = new ProcessBuilder("javac", path);
             pb.redirectErrorStream(true);
-
-            File log = new File("./log.txt");
-            pb.redirectOutput(log);
-
-//        System.out.println(command);
-
             Process process = pb.start();
-            console.appendText(getFileContent(log));
+            InputStream processError = process.getErrorStream();
+            console.readFrom(processError);
+
+            InputStream processOutput = process.getInputStream();
+            console.readFrom(processOutput);
+
+            process.waitFor();
 
 
-            BufferedReader br=new BufferedReader(
-                    new InputStreamReader(
-                            process.getInputStream()));
-            String line;
-            while((line=br.readLine())!=null){
-                System.out.println(line);
-            }
+
+//
+//            File log = new File("./log.txt");
+//            pb.redirectOutput(log);
+//
+//            Process process = pb.start();
+//            process.waitFor();
+//            console.appendText(getFileContent(log));
+
+
+//            BufferedReader br=new BufferedReader(
+//                    new InputStreamReader(
+//                            process.getInputStream()));
+//            String line;
+//            while((line=br.readLine())!=null){
+//                System.out.println(line);
+//            }
+
             return true;
         } catch (Exception ex) {
             System.out.println(ex);
             return false;
         }
-        // Check if any errors or compilation errors encounter then print on Console.
-//        if (process.getErrorStream().read() != -1) {
-//            System.out.println("Compilation Errors " + process.getErrorStream());
-//        }
-
-        // Check if javac process execute successfully or Not
-        //  0 - successful
-
-        // I AM NOT SURE WHY BUT THIS BLOCH GIVES AN ERROR
-//        if (process.exitValue() == 0) {
-//            process = new ProcessBuilder(new String[]{"java", "-cp", "d:\\", "Test"}).start();
-//            //Check if RuntimeException or Errors encounter during execution then print
-//            // errors on console
-//            // Otherwise print Output
-//
-//            if (process.getErrorStream().read() != -1) {
-//                System.out.println("Errors " + process.getErrorStream());
-//            } else {
-//                System.out.println("Output " + process.getInputStream());
-//            }
-//        }
-//        System.out.println("javac " + path + "*.java");
-//        pb.command("javac ", path, "*.java");
     }
 
     /**
@@ -105,10 +87,14 @@ class ToolbarController {
      * If code compiles successfully, the code will be run.
      * @param curFile
      */
-    void handleCompileRun(File curFile, StyleClassedTextArea console) {
+    void handleCompileRun(File curFile, IOConsole console) {
         System.out.println("Code is compiling and running");
         String path = curFile.getAbsoluteFile().getParent();
+        String fileName = curFile.getName();
 
+        System.out.println(path);
+        System.out.println(fileName);
+        System.out.println(fileName.substring(0,fileName.length()-5));
 
         try{
 
@@ -116,26 +102,36 @@ class ToolbarController {
             if(compiled == true){
                 try {
 
-                    ProcessBuilder pb = new ProcessBuilder("java", path, "/Main.class");
+                    ProcessBuilder pb = new ProcessBuilder("java", "-cp",path,fileName.substring(0,fileName.length()-5));
                     pb.redirectErrorStream(true);
 
-                    File log = new File("./log.txt");
-                    pb.redirectOutput(log);
-
-
-//        System.out.println(command);
 
                     Process process = pb.start();
-                    console.appendText(getFileContent(log));
+                    InputStream i = process.getErrorStream();
+                    console.readFrom(i);
+
+                    InputStream processOutput = process.getInputStream();
+                    console.readFrom(processOutput);
+
+                    process.waitFor();
 
 
-                    BufferedReader br=new BufferedReader(
-                            new InputStreamReader(
-                                    process.getInputStream()));
-                    String line;
-                    while((line=br.readLine())!=null){
-                        System.out.println(line);
-                    }
+//                    File log = new File("./log.txt");
+//                    pb.redirectOutput(log);
+//
+//
+//                    Process process = pb.start();
+//                    process.waitFor();
+//                    console.appendText(getFileContent(log));
+
+
+//                    BufferedReader br=new BufferedReader(
+//                            new InputStreamReader(
+//                                    process.getInputStream()));
+//                    String line;
+//                    while((line=br.readLine())!=null){
+//                        System.out.println(line);
+//                    }
 
                 } catch (Exception ex) {
                     System.out.println(ex);

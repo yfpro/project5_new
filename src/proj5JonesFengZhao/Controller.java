@@ -10,10 +10,8 @@ package proj5JonesFengZhao;
 import javafx.beans.property.SimpleListProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TabPane;
+import javafx.scene.control.*;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.fxmisc.richtext.CodeArea;
 import org.fxmisc.richtext.StyleClassedTextArea;
@@ -59,13 +57,17 @@ public class Controller {
     private MenuItem selectAllMenuItem;
 
     @FXML
+    private Menu editMenu;
+
+    @FXML
     private Button compileButton;
     @FXML
     private Button compileRunButton;
     @FXML
     private Button stopButton;
+
     @FXML
-    private StyleClassedTextArea console;
+    private VBox consoleBox;
 
     @FXML
     private Stage primaryStage;
@@ -73,6 +75,11 @@ public class Controller {
     FileMenuController fileMenuController = new FileMenuController();
     EditMenuController editMenuController = new EditMenuController();
     ToolbarController toolbarController = new ToolbarController();
+
+    IOConsole ioConsole = new IOConsole();
+
+
+
 
     /**
      * Handles the About button action.
@@ -236,7 +243,7 @@ public class Controller {
 //        Tab curTab = tabPane.getSelectionModel().getSelectedItem();
         File curFile = getCurrentFile();
         System.out.println(curFile);
-        if (curFile != null) toolbarController.handleCompile(curFile, console);
+        if (curFile != null) toolbarController.handleCompile(curFile, ioConsole);
     }
 
 
@@ -256,7 +263,7 @@ public class Controller {
 
         File curFile = getCurrentFile();
         System.out.println(curFile);
-        if (curFile != null) toolbarController.handleCompileRun(curFile, console);
+        if (curFile != null) toolbarController.handleCompileRun(curFile, ioConsole);
     }
 
     /**
@@ -307,6 +314,9 @@ public class Controller {
         SimpleListProperty<Tab> listProperty = new SimpleListProperty<>(tabPane.getTabs());
         disableFileMenu(listProperty);
         disableEditMenu(listProperty);
+
+        // add the console to the VBox at the bottom
+        consoleBox.getChildren().add(ioConsole);
     }
 
     private void disableFileMenu(SimpleListProperty listProperty) {
@@ -316,14 +326,15 @@ public class Controller {
     }
 
     private void disableEditMenu(SimpleListProperty listProperty) {
-        undoMenuItem.disableProperty().bind(listProperty.emptyProperty());
-//        undoMenuItem.disableProperty().bind(editMenuController.getCurrentCodeArea().undoAvailableProperty());
-        redoMenuItem.disableProperty().bind(listProperty.emptyProperty());
-//        redoMenuItem.disableProperty().bind(editMenuController.getCurrentCodeArea().undoAvailableProperty());
-        copyMenuItem.disableProperty().bind(listProperty.emptyProperty());
-        cutMenuItem.disableProperty().bind(listProperty.emptyProperty());
-        pasteMenuItem.disableProperty().bind(listProperty.emptyProperty());
-        selectAllMenuItem.disableProperty().bind(listProperty.emptyProperty());
+        editMenu.disableProperty().bind(listProperty.emptyProperty());
+//        undoMenuItem.disableProperty().bind(listProperty.emptyProperty());
+////        undoMenuItem.disableProperty().bind(editMenuController.getCurrentCodeArea().undoAvailableProperty());
+//        redoMenuItem.disableProperty().bind(listProperty.emptyProperty());
+////        redoMenuItem.disableProperty().bind(editMenuController.getCurrentCodeArea().undoAvailableProperty());
+//        copyMenuItem.disableProperty().bind(listProperty.emptyProperty());
+//        cutMenuItem.disableProperty().bind(listProperty.emptyProperty());
+//        pasteMenuItem.disableProperty().bind(listProperty.emptyProperty());
+//        selectAllMenuItem.disableProperty().bind(listProperty.emptyProperty());
     }
 
     /**

@@ -58,6 +58,7 @@ public class FileMenuController {
      * Handles the About button action.
      * Creates a dialog window that displays the authors' names.
      */
+
     void handleAboutMenuItemAction() {
         // create a information dialog window displaying the About text
         Alert dialog = new Alert(Alert.AlertType.INFORMATION);
@@ -88,8 +89,6 @@ public class FileMenuController {
 
 
         Tab newTab = createNewTab("untitled" + (untitledCounter++) + ".txt", new VirtualizedScrollPane<>(new ColoredCodeArea()));
-//        newTab.setText("untitled" + (untitledCounter++) + ".txt");
-//        newTab.setContent(new VirtualizedScrollPane<>(new ColoredCodeArea()));
 
         this.tabFileMap.put(newTab, null);
     }
