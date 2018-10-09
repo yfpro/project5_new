@@ -482,9 +482,18 @@ public class FileMenuController {
         primaryStage = (Stage) list[10];
     }
 
-    File getCurrentFile() {
 
-
+    /**
+     * helper function for handleCompile
+     * if there is unsaved changes in the file, ask the user whether to save before compile
+     * if the user clicks yes, save the current tab return the saved file
+     * if the user clicks no, (1) if the file has been saved before, return the old saved file
+     *                        (2) if the file has not been saved, return null
+     * if the user clicks cancel, return null
+     *
+     * @return a File object of the current file
+     */
+    public File getCurrentFile() {
 
         Tab currentTab = this.tabPane.getSelectionModel().getSelectedItem();
 
