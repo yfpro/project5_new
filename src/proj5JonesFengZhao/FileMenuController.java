@@ -371,7 +371,7 @@ public class FileMenuController {
         if (this.tabHasUnsavedChanges(tab)) {
             Alert alert = new Alert(
                     Alert.AlertType.CONFIRMATION,
-                    "Want to save before exit?",
+                    "Want to save before close?",
                     ButtonType.YES,
                     ButtonType.NO,
                     ButtonType.CANCEL
@@ -484,12 +484,37 @@ public class FileMenuController {
 
     File getCurrentFile() {
 
-        // get the selected tab from the tab pane
-        if(handleSaveMenuItemAction()) {
-            return this.tabFileMap.get(this.tabPane.getSelectionModel().getSelectedItem());
+
+
+        Tab currentTab = this.tabPane.getSelectionModel().getSelectedItem();
+
+
+        if (this.tabHasUnsavedChanges(currentTab)) {
+            Alert alert = new Alert(
+                    Alert.AlertType.CONFIRMATION,
+                    "Want to save before compile? If not, the old saved version without unsaved changes will be compiled.",
+                    ButtonType.YES,
+                    ButtonType.NO,
+                    ButtonType.CANCEL
+            );
+            alert.setTitle("Alert");
+
+
+            Optional<ButtonType> result = alert.showAndWait();
+            if(result.get() == ButtonType.YES) {
+                if(handleSaveMenuItemAction()) return this.tabFileMap.get(currentTab);
+                else return null;
+            }
+            else if(result.get() == ButtonType.NO) {
+                if (this.tabFileMap.get(currentTab) != null) return this.tabFileMap.get(currentTab);
+                else return null;
+            }
+            else return null;
+
         }
-        else{
-            return null;
+        else {
+            return this.tabFileMap.get(currentTab);
         }
+
     }
 }

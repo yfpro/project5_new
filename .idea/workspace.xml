@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="compile and run">
-      <change afterPath="$PROJECT_DIR$/src/proj5JonesFengZhao/IOConsole.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/proj5JonesFengZhao/fileMenu.fxml" afterDir="false" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="- built IOConsole&#10;- redirect process output">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/project5_new/proj5JonesFengZhao/Main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/project5_new/proj5JonesFengZhao/Main.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/proj5JonesFengZhao/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/proj5JonesFengZhao/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/proj5JonesFengZhao/FileMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/proj5JonesFengZhao/FileMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/proj5JonesFengZhao/Main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/proj5JonesFengZhao/Main.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/proj5JonesFengZhao/IOConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/proj5JonesFengZhao/IOConsole.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/proj5JonesFengZhao/ToolbarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/proj5JonesFengZhao/ToolbarController.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -90,14 +86,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="fxml" value="55" />
-          <entry key="java" value="1612" />
-          <entry key="txt" value="15" />
+          <entry key="java" value="2665" />
+          <entry key="txt" value="61" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="1612" />
-          <entry key="PLAIN_TEXT" value="15" />
+          <entry key="JAVA" value="2665" />
+          <entry key="PLAIN_TEXT" value="61" />
           <entry key="XML" value="55" />
         </counts>
       </usages-collector>
@@ -135,8 +131,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/IOConsole.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="295">
-              <caret line="23" column="53" selection-start-line="23" selection-start-column="49" selection-end-line="23" selection-end-column="53" />
+            <state relative-caret-position="114">
+              <caret line="16" column="7" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -144,14 +140,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/ToolbarController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="214">
-              <caret line="105" column="49" lean-forward="true" selection-start-line="105" selection-start-column="49" selection-end-line="105" selection-end-column="49" />
+            <state relative-caret-position="570">
+              <caret line="105" column="29" selection-start-line="105" selection-start-column="29" selection-end-line="105" selection-end-column="29" />
               <folding>
-                <element signature="e#3881#3882#0" expanded="true" />
-                <element signature="e#3943#3944#0" expanded="true" />
+                <element signature="e#2896#2897#0" expanded="true" />
+                <element signature="e#2958#2959#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -167,11 +163,11 @@
           <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/FileMenuController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="9" selection-start-line="9" selection-end-line="25" />
+            <state relative-caret-position="447">
+              <caret line="519" selection-start-line="519" selection-end-line="519" />
             </state>
           </provider>
         </entry>
@@ -179,8 +175,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="381">
-              <caret line="265" column="82" selection-start-line="265" selection-start-column="82" selection-end-line="265" selection-end-column="82" />
+            <state relative-caret-position="62">
+              <caret line="247" lean-forward="true" selection-start-line="247" selection-end-line="247" />
               <folding>
                 <element signature="e#1968#1969#0" expanded="true" />
                 <element signature="e#2030#2031#0" expanded="true" />
@@ -226,11 +222,19 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>getmap</find>
-      <find>handlesave</find>
       <find>handlesav</find>
       <find>stylec</find>
       <find>codearea</find>
       <find>handlecompi</find>
+      <find>handleSaveMenuItemAction</find>
+      <find>close</find>
+      <find>handleclose</find>
+      <find>tabhasunsavedchanges</find>
+      <find>save</find>
+      <find>getcurrent</find>
+      <find>closetab</find>
+      <find>handlesave</find>
+      <find>handlecom</find>
     </findStrings>
   </component>
   <component name="FindManager">
@@ -246,18 +250,18 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/proj5JonesFengZhao/fileMenu.fxml" />
-        <option value="$PROJECT_DIR$/src/proj5JonesFengZhao/FileMenuController.java" />
         <option value="$PROJECT_DIR$/src/proj5JonesFengZhao/Main.fxml" />
         <option value="$PROJECT_DIR$/src/proj5JonesFengZhao/Controller.java" />
         <option value="$PROJECT_DIR$/src/proj5JonesFengZhao/IOConsole.java" />
         <option value="$PROJECT_DIR$/src/proj5JonesFengZhao/ToolbarController.java" />
+        <option value="$PROJECT_DIR$/src/proj5JonesFengZhao/FileMenuController.java" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="352" />
-    <option name="y" value="27" />
+    <option name="x" value="261" />
+    <option name="y" value="23" />
     <option name="width" value="1088" />
     <option name="height" value="873" />
   </component>
@@ -305,8 +309,9 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Volumes/Transcend/Github/project5_new/src/proj5JonesFengZhao/ToolbarController.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539113145530" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539117211267" />
     <property name="dynamic.classpath" value="false" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -531,17 +536,24 @@
       <option name="project" value="LOCAL" />
       <updated>1539040446463</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="- built IOConsole&#10;- redirect process output">
+      <created>1539113192968</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1539113192968</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="1302000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="352" y="27" width="1088" height="873" extended-state="0" />
+    <frame x="261" y="23" width="1088" height="873" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.18929255" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.18929255" />
       <window_info id="Structure" order="1" weight="0.24952199" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -551,7 +563,7 @@
       <window_info id="Capture Tool" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.21638924" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.21638924" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39948782" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -583,7 +595,8 @@
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <MESSAGE value="compile and run" />
-    <option name="LAST_COMMIT_MESSAGE" value="compile and run" />
+    <MESSAGE value="- built IOConsole&#10;- redirect process output" />
+    <option name="LAST_COMMIT_MESSAGE" value="- built IOConsole&#10;- redirect process output" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -682,13 +695,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/FileMenuController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="9" selection-start-line="9" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/EditMenuController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="74">
@@ -696,10 +702,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/ToolbarController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="105" column="29" selection-start-line="105" selection-start-column="29" selection-end-line="105" selection-end-column="29" />
+          <folding>
+            <element signature="e#2896#2897#0" expanded="true" />
+            <element signature="e#2958#2959#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/IOConsole.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="16" column="7" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="265" column="82" selection-start-line="265" selection-start-column="82" selection-end-line="265" selection-end-column="82" />
+        <state relative-caret-position="62">
+          <caret line="247" lean-forward="true" selection-start-line="247" selection-end-line="247" />
           <folding>
             <element signature="e#1968#1969#0" expanded="true" />
             <element signature="e#2030#2031#0" expanded="true" />
@@ -731,24 +758,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/IOConsole.java">
+    <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/FileMenuController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="23" column="53" selection-start-line="23" selection-start-column="49" selection-end-line="23" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/ToolbarController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="105" column="49" lean-forward="true" selection-start-line="105" selection-start-column="49" selection-end-line="105" selection-end-column="49" />
-          <folding>
-            <element signature="e#3881#3882#0" expanded="true" />
-            <element signature="e#3943#3944#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="447">
+          <caret line="519" selection-start-line="519" selection-end-line="519" />
         </state>
       </provider>
     </entry>

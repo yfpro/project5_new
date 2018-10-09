@@ -38,47 +38,13 @@ class ToolbarController {
      *
      * @return compile successful or not
      */
-    boolean handleCompile(File curFile, IOConsole console) throws IOException {
+    boolean handleCompile(File curFile, IOConsole console)  {
         String path = curFile.getAbsolutePath();
         System.out.println(path);
 
+        String[] command = {"javac",path};
 
-        try {
-            ProcessBuilder pb = new ProcessBuilder("javac", path);
-            pb.redirectErrorStream(true);
-            Process process = pb.start();
-            InputStream processError = process.getErrorStream();
-            console.readFrom(processError);
-
-            InputStream processOutput = process.getInputStream();
-            console.readFrom(processOutput);
-
-            process.waitFor();
-
-
-
-//
-//            File log = new File("./log.txt");
-//            pb.redirectOutput(log);
-//
-//            Process process = pb.start();
-//            process.waitFor();
-//            console.appendText(getFileContent(log));
-
-
-//            BufferedReader br=new BufferedReader(
-//                    new InputStreamReader(
-//                            process.getInputStream()));
-//            String line;
-//            while((line=br.readLine())!=null){
-//                System.out.println(line);
-//            }
-
-            return true;
-        } catch (Exception ex) {
-            System.out.println(ex);
-            return false;
-        }
+        return(buildProcess(console, command));
     }
 
     /**
@@ -88,60 +54,18 @@ class ToolbarController {
      * @param curFile
      */
     void handleCompileRun(File curFile, IOConsole console) {
-        System.out.println("Code is compiling and running");
+
         String path = curFile.getAbsoluteFile().getParent();
         String fileName = curFile.getName();
 
-        System.out.println(path);
-        System.out.println(fileName);
-        System.out.println(fileName.substring(0,fileName.length()-5));
+        boolean compiled = handleCompile(curFile, console);
 
-        try{
+        if(compiled == true){
+            String[] command = {"java", "-cp",path,fileName.substring(0,fileName.length()-5)};
+            buildProcess(console,command);
 
-            boolean compiled = handleCompile(curFile, console);
-            if(compiled == true){
-                try {
-
-                    ProcessBuilder pb = new ProcessBuilder("java", "-cp",path,fileName.substring(0,fileName.length()-5));
-                    pb.redirectErrorStream(true);
-
-
-                    Process process = pb.start();
-                    InputStream i = process.getErrorStream();
-                    console.readFrom(i);
-
-                    InputStream processOutput = process.getInputStream();
-                    console.readFrom(processOutput);
-
-                    process.waitFor();
-
-
-//                    File log = new File("./log.txt");
-//                    pb.redirectOutput(log);
-//
-//
-//                    Process process = pb.start();
-//                    process.waitFor();
-//                    console.appendText(getFileContent(log));
-
-
-//                    BufferedReader br=new BufferedReader(
-//                            new InputStreamReader(
-//                                    process.getInputStream()));
-//                    String line;
-//                    while((line=br.readLine())!=null){
-//                        System.out.println(line);
-//                    }
-
-                } catch (Exception ex) {
-                    System.out.println(ex);
-
-                }
-            }
         }
-        catch (IOException e){
-            System.out.println(e);
-        }
+
 
 
 
@@ -152,21 +76,38 @@ class ToolbarController {
      *
      * @param stopButton Reference to the Stop Button initialized in Main.fxml
      */
-    void handleStop(Button stopButton) {
+    public void handleStop(Button stopButton) {
         System.out.println("Running code is stopping");
     }
 
 
-    private String getFileContent(File file) {
-        String content = "";
-        try {
-            content = new String(Files.readAllBytes(Paths.get(file.toURI())));
-        } catch (IOException e) {
-            UserErrorDialog userErrorDialog = new UserErrorDialog(
-                    UserErrorDialog.ErrorType.READING_ERROR, file.getName());
-            userErrorDialog.showAndWait();
+    /**
+     * Helper function to build a process
+     * @param console
+     * @param command
+     * @return
+     */
+    public boolean buildProcess(IOConsole console, String[] command){
+        try{
+            ProcessBuilder pb = new ProcessBuilder(command);
+            pb.redirectErrorStream(true);
+            Process process = pb.start();
+            InputStream i = process.getErrorStream();
+            console.readFrom(i);
+
+            InputStream processOutput = process.getInputStream();
+            console.readFrom(processOutput);
+
+//            OutputStream processInput = process.getOutputStream();
+//            console.writeTo(processInput);
+
+            int errCode = process.waitFor();
+            if (errCode == 0)return true;
+            else return false;
+        } catch (Exception ex) {
+            System.out.println(ex);
+            return false;
 
         }
-        return content;
     }
 }

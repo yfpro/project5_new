@@ -6,18 +6,22 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.nio.charset.Charset;
 
 public class IOConsole extends StyleClassedTextArea{
 
-    private InputStream inputStream;
     private OutputStream outputStream;
     private OutputStream errorStream;
 
-    public void readFrom(InputStream i){
-            inputStream = i;
+    /**
+     * Read from the inputStream of process and write to the styleClassedTextArea
+     *
+     * @param input inputStream got from the process
+     */
+    public void readFrom(InputStream input){
 
             // read the input using BufferedReader
-            BufferedReader br = new BufferedReader(new InputStreamReader(i));
+            BufferedReader br = new BufferedReader(new InputStreamReader(input));
 
             String line;
             try {
@@ -30,6 +34,15 @@ public class IOConsole extends StyleClassedTextArea{
             }
 
 
+    }
+
+    public void writeTo(OutputStream output){
+        try {
+            output.write(this.getText().getBytes(Charset.defaultCharset()));
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
     }
 
 }
