@@ -13,11 +13,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import org.fxmisc.richtext.CodeArea;
-import org.fxmisc.richtext.StyleClassedTextArea;
-
 import java.io.File;
-import java.io.IOException;
 
 
 /**
@@ -72,13 +68,11 @@ public class Controller {
     @FXML
     private Stage primaryStage;
 
-    FileMenuController fileMenuController = new FileMenuController();
-    EditMenuController editMenuController = new EditMenuController();
-    ToolbarController toolbarController = new ToolbarController();
+    private FileMenuController fileMenuController = new FileMenuController();
+    private EditMenuController editMenuController = new EditMenuController();
+    private ToolbarController toolbarController = new ToolbarController();
 
-    IOConsole ioConsole = new IOConsole();
-
-
+    private IOConsole ioConsole = new IOConsole();
 
 
     /**
@@ -161,24 +155,6 @@ public class Controller {
         fileMenuController.handleExitMenuItemAction();
     }
 
-
-    /**
-     * Updates the visual status (greyed or not) of items when user
-     * click open the File menu
-     */
-//    @FXML
-//    private void handleFileMenuShowing() {
-//        fileMenuController.handleFileMenuShowing();
-//    }
-//
-//    /**
-//     * Resets the greying out of items when File menu closes
-//     */
-//    @FXML
-//    private void handleFileMenuHidden() {
-//        fileMenuController.handleFileMenuHidden();
-//    }
-
     /**
      * Handles the Undo button action.
      * Undo the actions in the text area.
@@ -239,17 +215,13 @@ public class Controller {
      * Otherwise, it will print compilation success.
      */
     @FXML
-    private void handleCompile() throws IOException {
-//        Tab curTab = tabPane.getSelectionModel().getSelectedItem();
+    private void handleCompile() {
         File curFile = getCurrentFile();
-        System.out.println(curFile);
         if (curFile != null) toolbarController.handleCompile(curFile, ioConsole);
     }
 
-
-    private File getCurrentFile(){
-        File curFile = fileMenuController.getCurrentFile();
-        return curFile;
+    private File getCurrentFile() {
+        return fileMenuController.getCurrentFile();
     }
 
     /**
@@ -259,8 +231,7 @@ public class Controller {
      * If code compiles successfully, the code will be run.
      */
     @FXML
-    private void handleCompileRun(){
-
+    private void handleCompileRun() {
         File curFile = getCurrentFile();
         System.out.println(curFile);
         if (curFile != null) toolbarController.handleCompileRun(curFile, ioConsole);
@@ -271,32 +242,15 @@ public class Controller {
      * Will stop any code running through Compile and Run button.
      */
     @FXML
-    private void handleStop(){
+    private void handleStop() {
         toolbarController.handleStop(stopButton);
     }
-
-    /**
-     * Updates the visual status (greyed or not) of items when user
-     * click open the Edit menu
-     */
-//    @FXML
-//    private void handleEditMenuShowing() {
-//        editMenuController.handleEditMenuShowing();
-//    }
-
-    /**
-     * Resets the greying out of items when Edit menu closes
-     */
-//    @FXML
-//    private void handleEditMenuHidden() {
-//        editMenuController.handleEditMenuHidden();
-//    }
 
     /**
      * Reads in the application's main stage.
      * For use in Filechooser dialogs
      */
-    public void setPrimaryStage(Stage primaryStage) {
+    void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
 
@@ -306,12 +260,12 @@ public class Controller {
      * and passes necessary items
      */
     public void initialize() {
-        fileMenuController.recieveFXMLElements(this.passFXMLElements());
+        fileMenuController.receiveFXMLElements(this.passFXMLElements());
         editMenuController.recieveFXMLElements(this.passFXMLElements());
-
         this.handleNewMenuItemAction();
 
-        SimpleListProperty<Tab> listProperty = new SimpleListProperty<>(tabPane.getTabs());
+        SimpleListProperty<Tab> listProperty =
+                new SimpleListProperty<>(tabPane.getTabs());
         disableFileMenu(listProperty);
         disableEditMenu(listProperty);
 
@@ -325,6 +279,7 @@ public class Controller {
         closeMenuItem.disableProperty().bind(listProperty.emptyProperty());
     }
 
+    //TODO: Why are all of these commented out???
     private void disableEditMenu(SimpleListProperty listProperty) {
         editMenu.disableProperty().bind(listProperty.emptyProperty());
 //        undoMenuItem.disableProperty().bind(listProperty.emptyProperty());
@@ -343,7 +298,7 @@ public class Controller {
      *
      * @return list containing necessary elements
      */
-    public Object[] passFXMLElements() {
+    private Object[] passFXMLElements() {
 
         return new Object[]{
                 this.tabPane,
