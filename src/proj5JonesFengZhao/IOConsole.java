@@ -2,11 +2,9 @@ package proj5JonesFengZhao;
 
 import org.fxmisc.richtext.StyleClassedTextArea;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
+import java.io.*;
 import java.nio.charset.Charset;
+import java.util.Scanner;
 
 public class IOConsole extends StyleClassedTextArea{
 
@@ -38,10 +36,32 @@ public class IOConsole extends StyleClassedTextArea{
 
     public void writeTo(OutputStream output){
         try {
+            Scanner scan = new Scanner(this.getText());
+            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(output));
+
+            String line;
+            try {
+                while ((line = scan.nextLine()) != null) {
+                    this.appendText(line + "\n");
+                }
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+
+            String input = scan.nextLine();
+            input += "\n";
+            writer.write(input);
+            System.out.println(input);
+            writer.flush();
+//            writer.close();
+
+//            System.out.println("Hello");
+//            System.out.println(output);
             output.write(this.getText().getBytes(Charset.defaultCharset()));
+
         }
         catch (Exception e){
-            System.out.println(e);
+            e.printStackTrace();
         }
     }
 

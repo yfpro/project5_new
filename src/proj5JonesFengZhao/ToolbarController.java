@@ -98,8 +98,8 @@ class ToolbarController {
             InputStream processOutput = process.getInputStream();
             console.readFrom(processOutput);
 
-//            OutputStream processInput = process.getOutputStream();
-//            console.writeTo(processInput);
+            OutputStream processInput = process.getOutputStream();
+            console.writeTo(processInput);
 
             int errCode = process.waitFor();
             if (errCode == 0)return true;
