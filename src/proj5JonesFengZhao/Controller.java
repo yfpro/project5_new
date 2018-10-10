@@ -8,7 +8,6 @@ Date: 10/12/18
 package proj5JonesFengZhao;
 
 import javafx.beans.property.SimpleListProperty;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
@@ -55,10 +54,6 @@ public class Controller {
     @FXML
     private Menu editMenu;
 
-    @FXML
-    private Button compileButton;
-    @FXML
-    private Button compileRunButton;
     @FXML
     private Button stopButton;
 
@@ -114,8 +109,8 @@ public class Controller {
      * a dialog appears asking whether you want to save the text before closing it.
      */
     @FXML
-    private void handleCloseMenuItemAction(ActionEvent event) {
-        fileMenuController.handleCloseMenuItemAction(event);
+    private void handleCloseMenuItemAction() {
+        fileMenuController.handleCloseMenuItemAction();
     }
 
     /**
@@ -261,7 +256,7 @@ public class Controller {
      */
     public void initialize() {
         fileMenuController.receiveFXMLElements(this.passFXMLElements());
-        editMenuController.recieveFXMLElements(this.passFXMLElements());
+        editMenuController.receiveFXMLElements(this.passFXMLElements());
         this.handleNewMenuItemAction();
 
         SimpleListProperty<Tab> listProperty =

@@ -129,8 +129,8 @@ public class FileMenuController {
      * If the current text area has been changed since it was last saved to a file,
      * a dialog appears asking whether you want to save the text before closing it.
      */
-    void handleCloseMenuItemAction(Event event) {
-        if (!this.isTabless()) {
+    void handleCloseMenuItemAction() {
+        if (!this.isTables()) {
             this.closeTab(this.getCurrentTab());
         }
     }
@@ -381,16 +381,8 @@ public class FileMenuController {
      *
      * @return true if there aren't currently any tabs open, else false
      */
-    boolean isTabless() {
+    private boolean isTables() {
         return this.tabPane.getTabs().isEmpty();
-    }
-
-    /**
-     * Reads in the application's main stage.
-     * For use in Filechooser dialogs
-     */
-    public void setPrimaryStage(Stage primaryStage) {
-        this.primaryStage = primaryStage;
     }
 
     /**
@@ -401,7 +393,7 @@ public class FileMenuController {
      * @param content the content of the tab
      * @return Tab return the created tab
      */
-    public Tab createNewTab(String tabText, Node content) {
+    private Tab createNewTab(String tabText, Node content) {
         Tab newTab = new Tab();
         // set close action (clicking the 'x')
         newTab.setOnCloseRequest(event -> {
@@ -444,7 +436,7 @@ public class FileMenuController {
      *
      * @return a File object of the current file
      */
-    public File getCurrentFile() {
+    File getCurrentFile() {
         Tab currentTab = this.tabPane.getSelectionModel().getSelectedItem();
 
         if (this.tabHasUnsavedChanges(currentTab)) {

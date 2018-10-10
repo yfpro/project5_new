@@ -3,16 +3,18 @@ package proj5JonesFengZhao;
 import javafx.scene.input.KeyCode;
 import org.fxmisc.richtext.StyleClassedTextArea;
 
-import java.io.*;
-import java.nio.charset.Charset;
-import java.util.Scanner;
+import java.io.OutputStream;
+import java.io.InputStream;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 
-public class IOConsole extends StyleClassedTextArea {
 
+class IOConsole extends StyleClassedTextArea {
     private OutputStream outputStream;
     private OutputStream errorStream;
     private String input;
-
 
     IOConsole() {
         input = "";
@@ -28,7 +30,7 @@ public class IOConsole extends StyleClassedTextArea {
      *
      * @param input inputStream got from the process
      */
-    public void readFrom(InputStream input) {
+    void readFrom(InputStream input) {
 
         // read the input using BufferedReader
         BufferedReader br = new BufferedReader(new InputStreamReader(input));
@@ -43,9 +45,8 @@ public class IOConsole extends StyleClassedTextArea {
         }
     }
 
-    public void writeTo() {
+    private void writeTo() {
         try {
-            Scanner scan = new Scanner(this.getText());
             BufferedWriter writer = new BufferedWriter(
                     new OutputStreamWriter(outputStream));
 

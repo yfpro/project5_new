@@ -13,20 +13,19 @@ import javafx.scene.control.TabPane;
 import org.fxmisc.flowless.VirtualizedScrollPane;
 import org.fxmisc.richtext.CodeArea;
 
-/** 
+/**
  * This class handles the Edit menu, as a helper to the main Controller.
- * This includes the individual handler methods for the MenuItems as 
+ * This includes the individual handler methods for the MenuItems as
  * well as logic for determining deactivating the buttons when
  * appropriate.
  *
- *  @author Yi Feng
- *  @author Iris Lian
- *  @author Chris Marcello
- *  @author Evan Savillo
- *  @author Matt Jones
+ * @author Yi Feng
+ * @author Iris Lian
+ * @author Chris Marcello
+ * @author Evan Savillo
+ * @author Matt Jones
  */
-public class EditMenuController
-{
+public class EditMenuController {
     private TabPane tabPane;
 
     private MenuItem undoMenuItem;
@@ -41,8 +40,7 @@ public class EditMenuController
      * Handles the Undo button action.
      * Undo the actions in the text area.
      */
-    void handleUndoMenuItemAction()
-    {
+    void handleUndoMenuItemAction() {
         this.getCurrentCodeArea().undo();
     }
 
@@ -50,8 +48,7 @@ public class EditMenuController
      * Handles the Redo button action.
      * Redo the actions in the text area.
      */
-    void handleRedoMenuItemAction()
-    {
+    void handleRedoMenuItemAction() {
         this.getCurrentCodeArea().redo();
     }
 
@@ -59,8 +56,7 @@ public class EditMenuController
      * Handles the Cut button action.
      * Cuts the selected text.
      */
-    void handleCutMenuItemAction()
-    {
+    void handleCutMenuItemAction() {
         this.getCurrentCodeArea().cut();
     }
 
@@ -68,8 +64,7 @@ public class EditMenuController
      * Handles the Copy button action.
      * Copies the selected text.
      */
-    void handleCopyMenuItemAction()
-    {
+    void handleCopyMenuItemAction() {
         this.getCurrentCodeArea().copy();
     }
 
@@ -77,8 +72,7 @@ public class EditMenuController
      * Handles the Paste button action.
      * Pastes the copied/cut text.
      */
-    void handlePasteMenuItemAction()
-    {
+    void handlePasteMenuItemAction() {
         this.getCurrentCodeArea().paste();
     }
 
@@ -86,63 +80,16 @@ public class EditMenuController
      * Handles the SelectAll button action.
      * Selects all texts in the text area.
      */
-    void handleSelectAllMenuItemAction()
-    {
+    void handleSelectAllMenuItemAction() {
         this.getCurrentCodeArea().selectAll();
     }
-
-    /**
-     * Updates the visual status (greyed or not) of items when user
-     * click open the Edit menu
-     */
-//    void handleEditMenuShowing()
-//    {
-//        // Case 1: No tabs
-//        if (this.isTabless())
-//        {
-//            this.undoMenuItem.setDisable(true);
-//            this.redoMenuItem.setDisable(true);
-//            this.cutMenuItem.setDisable(true);
-//            this.copyMenuItem.setDisable(true);
-//            this.pasteMenuItem.setDisable(true);
-//            this.selectAllMenuItem.setDisable(true);
-//        }
-//        else
-//        {
-//        // Case 2: No undos
-//        if (!getCurrentCodeArea().isUndoAvailable())
-//        {
-//            this.undoMenuItem.setDisable(true);
-//        }
-//
-//        // Case 3: No redos
-//        if (!getCurrentCodeArea().isRedoAvailable())
-//        {
-//            this.redoMenuItem.setDisable(true);
-//        }
-//    }
-
-    /**
-     * Resets the greying out of items when Edit menu closes
-     */
-//    void handleEditMenuHidden()
-//    {
-//        return;
-//        this.undoMenuItem.setDisable(false);
-//        this.redoMenuItem.setDisable(false);
-//        this.cutMenuItem.setDisable(false);
-//        this.copyMenuItem.setDisable(false);
-//        this.pasteMenuItem.setDisable(false);
-//        this.selectAllMenuItem.setDisable(false);
-//    }
 
     /**
      * Simple helper method which returns the currently viewed tab
      *
      * @return currently viewed tab
      */
-    private Tab getCurrentTab()
-    {
+    private Tab getCurrentTab() {
         return this.tabPane.getSelectionModel().getSelectedItem();
     }
 
@@ -151,8 +98,7 @@ public class EditMenuController
      *
      * @return current viewed code area
      */
-    CodeArea getCurrentCodeArea()
-    {
+    private CodeArea getCurrentCodeArea() {
         Tab selectedTab = this.getCurrentTab();
         VirtualizedScrollPane vsp = (VirtualizedScrollPane) selectedTab.getContent();
         return (CodeArea) vsp.getContent();
@@ -163,17 +109,15 @@ public class EditMenuController
      *
      * @return true if there aren't currently any tabs open, else false
      */
-    private boolean isTabless()
-    {
+    private boolean isTabless() {
         return this.tabPane.getTabs().isEmpty();
     }
-    
-    /** 
+
+    /**
      * Simple helper method that gets the FXML objects from the
      * main controller for use by other methods in the class.
      */
-    void recieveFXMLElements(Object[] list)
-    {
+    void receiveFXMLElements(Object[] list) {
         tabPane = (TabPane) list[0];
         undoMenuItem = (MenuItem) list[4];
         redoMenuItem = (MenuItem) list[5];
