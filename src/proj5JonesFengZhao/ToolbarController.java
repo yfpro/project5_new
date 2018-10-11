@@ -9,8 +9,6 @@ package proj5JonesFengZhao;
 
 import javafx.scene.control.Button;
 import java.io.File;
-import java.io.InputStream;
-import java.io.OutputStream;
 
 
 /**
@@ -25,6 +23,8 @@ import java.io.OutputStream;
  * @since 10-3-2018
  */
 class ToolbarController {
+    private Thread runThread;
+
     /**
      * Will compile the code and print error codes in the terminal if necessary.
      * Otherwise, it will print compilation success.
@@ -32,10 +32,9 @@ class ToolbarController {
      * @param curFile Reference to the currently selected file.
      * @return compile successful or not
      */
-    boolean handleCompile(File curFile, IOConsole console) {
-        String path = curFile.getAbsolutePath();
-        String[] command = {"javac", path};
-        return (buildProcess(console, command));
+    void handleCompile(File curFile, IOConsole console) {
+        Thread compileThread = new Thread(new CompileProcess(curFile, console));
+        compileThread.start();
     }
 
     /**
@@ -46,14 +45,8 @@ class ToolbarController {
      * @param curFile
      */
     void handleCompileRun(File curFile, IOConsole console) {
-        String path = curFile.getAbsoluteFile().getParent();
-        String fileName = curFile.getName();
-        boolean compiled = handleCompile(curFile, console);
-
-        if (compiled == true) {
-            String[] command = {"java", "-cp", path, fileName.substring(0, fileName.length() - 5)};
-            buildProcess(console, command);
-        }
+        runThread = new Thread(new CompileRunProcess(curFile, console));
+        runThread.start();
     }
 
     /**
@@ -62,6 +55,7 @@ class ToolbarController {
      * @param stopButton Reference to the Stop Button initialized in Main.fxml
      */
     void handleStop(Button stopButton) {
+        runThread.interrupt();
         System.out.println("Running code is stopping");
     }
 
@@ -72,25 +66,4 @@ class ToolbarController {
      * @param command
      * @return
      */
-    private boolean buildProcess(IOConsole console, String[] command) {
-        try {
-            ProcessBuilder pb = new ProcessBuilder(command);
-            pb.redirectErrorStream(true);
-            Process process = pb.start();
-            InputStream i = process.getErrorStream();
-            console.readFrom(i);
-
-            InputStream processOutput = process.getInputStream();
-            console.readFrom(processOutput);
-
-            OutputStream processInput = process.getOutputStream();
-            console.setOutputStream(processInput);
-
-            int errCode = process.waitFor();
-            return errCode == 0;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
 }

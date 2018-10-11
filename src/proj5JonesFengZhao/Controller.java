@@ -13,7 +13,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import java.io.File;
-
+//TODO: erorr with closing tab and then compiling
 
 /**
  * Controller is the main controller for the application.
@@ -228,7 +228,6 @@ public class Controller {
     @FXML
     private void handleCompileRun() {
         File curFile = getCurrentFile();
-        System.out.println(curFile);
         if (curFile != null) toolbarController.handleCompileRun(curFile, ioConsole);
     }
 
