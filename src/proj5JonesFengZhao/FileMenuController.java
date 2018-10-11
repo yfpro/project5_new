@@ -55,7 +55,7 @@ public class FileMenuController {
      * Handles the About button action.
      * Creates a dialog window that displays the authors' names.
      */
-    void handleAboutMenuItemAction() {
+    public void handleAboutMenuItemAction() {
         // create a information dialog window displaying the About text
         Alert dialog = new Alert(Alert.AlertType.INFORMATION);
 
@@ -80,7 +80,7 @@ public class FileMenuController {
      * Opens a text area embedded in a new tab.
      * Sets the newly opened tab to the the topmost one.
      */
-    void handleNewMenuItemAction() {
+    public void handleNewMenuItemAction() {
         Tab newTab = createNewTab("untitled" + (untitledCounter++) + ".txt",
                 new VirtualizedScrollPane<>(new ColoredCodeArea()));
         this.tabFileMap.put(newTab, null);
@@ -93,7 +93,7 @@ public class FileMenuController {
      * is loaded into the text area.
      * If the user cancels, the dialog disappears without doing anything.
      */
-    void handleOpenMenuItemAction() {
+    public void handleOpenMenuItemAction() {
         // create a fileChooser
         FileChooser fileChooser = new FileChooser();
         File openFile = fileChooser.showOpenDialog(this.primaryStage);
@@ -129,7 +129,7 @@ public class FileMenuController {
      * If the current text area has been changed since it was last saved to a file,
      * a dialog appears asking whether you want to save the text before closing it.
      */
-    void handleCloseMenuItemAction() {
+    public void handleCloseMenuItemAction() {
         if (!this.isTables()) {
             this.closeTab(this.getCurrentTab());
         }
@@ -148,7 +148,7 @@ public class FileMenuController {
      *
      * @return false if the user has clicked cancel
      */
-    boolean handleSaveAsMenuItemAction() {
+    public boolean handleSaveAsMenuItemAction() {
         // create a fileChooser and add file extension restrictions
         FileChooser fileChooser = new FileChooser();
 
@@ -185,7 +185,7 @@ public class FileMenuController {
      *
      * @return false if the user has clicked cancel
      */
-    boolean handleSaveMenuItemAction() {
+    public boolean handleSaveMenuItemAction() {
         // get the selected tab from the tab pane
         Tab selectedTab = this.tabPane.getSelectionModel().getSelectedItem();
 
@@ -209,7 +209,7 @@ public class FileMenuController {
      * Handles the Exit button action.
      * Exits the program when the Exit button is clicked.
      */
-    void handleExitMenuItemAction() {
+    public void handleExitMenuItemAction() {
         ArrayList<Tab> tablist = new ArrayList<>(this.tabFileMap.keySet());
         for (Tab tab : tablist) {
             this.tabPane.getSelectionModel().select(tab);
@@ -416,7 +416,7 @@ public class FileMenuController {
      * Simple helper method that gets the FXML objects from the
      * main controller for use by other methods in the class.
      */
-    void receiveFXMLElements(Object[] list) {
+    public void receiveFXMLElements(Object[] list) {
         tabPane = (TabPane) list[0];
         closeMenuItem = (MenuItem) list[1];
         saveMenuItem = (MenuItem) list[2];
@@ -436,7 +436,7 @@ public class FileMenuController {
      *
      * @return a File object of the current file
      */
-    File getCurrentFile() {
+    public File getCurrentFile() {
         Tab currentTab = this.tabPane.getSelectionModel().getSelectedItem();
 
         if (this.tabHasUnsavedChanges(currentTab)) {

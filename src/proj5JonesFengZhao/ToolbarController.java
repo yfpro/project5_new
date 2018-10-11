@@ -32,7 +32,7 @@ class ToolbarController {
      * @param curFile Reference to the currently selected file.
      * @return compile successful or not
      */
-    void handleCompile(File curFile, IOConsole console) {
+    public void handleCompile(File curFile, IOConsole console) {
         Thread compileThread = new Thread(new CompileProcess(curFile, console));
         compileThread.start();
     }
@@ -44,7 +44,7 @@ class ToolbarController {
      *
      * @param curFile
      */
-    void handleCompileRun(File curFile, IOConsole console) {
+    public void handleCompileRun(File curFile, IOConsole console) {
         runThread = new Thread(new CompileRunProcess(curFile, console));
         runThread.start();
     }
@@ -54,7 +54,7 @@ class ToolbarController {
      *
      * @param stopButton Reference to the Stop Button initialized in Main.fxml
      */
-    void handleStop(Button stopButton) {
+    public void handleStop(Button stopButton) {
         runThread.interrupt();
         System.out.println("Running code is stopping");
     }

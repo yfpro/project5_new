@@ -20,7 +20,7 @@ public class CompileProcess implements Runnable {
         buildProcess(console, command);
     }
 
-    private void buildProcess(IOConsole console, String[] command) {
+    public boolean buildProcess(IOConsole console, String[] command) {
         try {
             ProcessBuilder pb = new ProcessBuilder(command);
             pb.redirectErrorStream(true);
@@ -34,9 +34,11 @@ public class CompileProcess implements Runnable {
             OutputStream processInput = process.getOutputStream();
             console.setOutputStream(processInput);
 
-            process.waitFor();
+            int errCode = process.waitFor();
+            return errCode == 0;
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
         }
     }
 }

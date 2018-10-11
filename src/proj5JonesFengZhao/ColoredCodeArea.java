@@ -8,6 +8,7 @@ Date: 10/12/18
 package proj5JonesFengZhao;
 
 //import com.sun.tools.javac.jvm.Code;
+
 import org.fxmisc.richtext.CodeArea;
 import org.fxmisc.richtext.LineNumberFactory;
 import org.fxmisc.richtext.model.StyleSpans;
@@ -22,18 +23,17 @@ import java.util.regex.Pattern;
 
 
 /**
- * This class handles the creation of CodeAreas, as well as keyword 
+ * This class handles the creation of CodeAreas, as well as keyword
  * highlighting and syntax recognition.
  * It contains the creation method createCodeArea and a helper method
  * computeHighlighting which handles the highlighting of the codeArea.
  * It also contains the java keywords and patterns to be colored in the CodeArea.
  *
- *  @author Yi Feng
- *  @author Iris Lian
- *  @author Matt Jones
+ * @author Yi Feng
+ * @author Iris Lian
+ * @author Matt Jones
  */
-public class ColoredCodeArea extends CodeArea
-{
+public class ColoredCodeArea extends CodeArea {
     /**
      * Keywords which need to be highlighted
      */
@@ -78,9 +78,7 @@ public class ColoredCodeArea extends CodeArea
     /**
      * Helper function which creates and sets up a code area.
      */
-    ColoredCodeArea()
-    {
-
+    ColoredCodeArea() {
         this.setParagraphGraphicFactory(LineNumberFactory.get(this));
 
         //  recompute the syntax highlighting 500 ms after user stops editing area
@@ -110,14 +108,12 @@ public class ColoredCodeArea extends CodeArea
      *
      * @param text String that is in the code area
      */
-    private static StyleSpans<Collection<String>> computeHighlighting(String text)
-    {
+    private static StyleSpans<Collection<String>> computeHighlighting(String text) {
         Matcher matcher = PATTERN.matcher(text);
         int lastKwEnd = 0;
         StyleSpansBuilder<Collection<String>> spansBuilder
                 = new StyleSpansBuilder<>();
-        while (matcher.find())
-        {
+        while (matcher.find()) {
             String styleClass =
                     matcher.group("KEYWORD") != null ? "keyword" : matcher.group("PAREN") != null ? "paren" :
                             matcher.group("BRACE") != null ? "brace" :
@@ -135,5 +131,4 @@ public class ColoredCodeArea extends CodeArea
         spansBuilder.add(Collections.emptyList(), text.length() - lastKwEnd);
         return spansBuilder.create();
     }
-
 }

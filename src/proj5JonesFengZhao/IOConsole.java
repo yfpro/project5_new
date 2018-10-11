@@ -22,7 +22,7 @@ class IOConsole extends StyleClassedTextArea {
         this.setOnKeyPressed(event -> handleKeyPress(event.getCode()));
     }
 
-    void setOutputStream(OutputStream outputStream) {
+    public void setOutputStream(OutputStream outputStream) {
         this.outputStream = outputStream;
     }
 

@@ -40,7 +40,7 @@ public class EditMenuController {
      * Handles the Undo button action.
      * Undo the actions in the text area.
      */
-    void handleUndoMenuItemAction() {
+    public void handleUndoMenuItemAction() {
         this.getCurrentCodeArea().undo();
     }
 
@@ -48,7 +48,7 @@ public class EditMenuController {
      * Handles the Redo button action.
      * Redo the actions in the text area.
      */
-    void handleRedoMenuItemAction() {
+    public void handleRedoMenuItemAction() {
         this.getCurrentCodeArea().redo();
     }
 
@@ -56,7 +56,7 @@ public class EditMenuController {
      * Handles the Cut button action.
      * Cuts the selected text.
      */
-    void handleCutMenuItemAction() {
+    public void handleCutMenuItemAction() {
         this.getCurrentCodeArea().cut();
     }
 
@@ -64,7 +64,7 @@ public class EditMenuController {
      * Handles the Copy button action.
      * Copies the selected text.
      */
-    void handleCopyMenuItemAction() {
+    public void handleCopyMenuItemAction() {
         this.getCurrentCodeArea().copy();
     }
 
@@ -72,7 +72,7 @@ public class EditMenuController {
      * Handles the Paste button action.
      * Pastes the copied/cut text.
      */
-    void handlePasteMenuItemAction() {
+    public void handlePasteMenuItemAction() {
         this.getCurrentCodeArea().paste();
     }
 
@@ -80,7 +80,7 @@ public class EditMenuController {
      * Handles the SelectAll button action.
      * Selects all texts in the text area.
      */
-    void handleSelectAllMenuItemAction() {
+    public void handleSelectAllMenuItemAction() {
         this.getCurrentCodeArea().selectAll();
     }
 
@@ -117,7 +117,7 @@ public class EditMenuController {
      * Simple helper method that gets the FXML objects from the
      * main controller for use by other methods in the class.
      */
-    void receiveFXMLElements(Object[] list) {
+    public void receiveFXMLElements(Object[] list) {
         tabPane = (TabPane) list[0];
         undoMenuItem = (MenuItem) list[4];
         redoMenuItem = (MenuItem) list[5];
