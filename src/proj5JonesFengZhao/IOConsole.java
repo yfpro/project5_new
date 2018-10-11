@@ -1,10 +1,20 @@
+/*
+File: IOConsole.java
+CS361 Project 5
+Names: Yi Feng, Matt Jones, Danqing Zhao
+Date: 10/12/18
+ */
+
 package proj5JonesFengZhao;
 
 import javafx.application.Platform;
 import javafx.scene.input.KeyCode;
 import org.fxmisc.richtext.StyleClassedTextArea;
 
-import java.io.*;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.IOException;
 
 
 public class IOConsole extends StyleClassedTextArea {
@@ -15,10 +25,6 @@ public class IOConsole extends StyleClassedTextArea {
     IOConsole() {
         input = "";
         this.setOnKeyPressed(event -> handleKeyPress(event.getCode()));
-    }
-
-    public void setOutputStream(OutputStream outputStream) {
-        this.outputStream = outputStream;
     }
 
     /**

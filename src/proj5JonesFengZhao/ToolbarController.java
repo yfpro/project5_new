@@ -7,9 +7,6 @@ Date: 10/12/18
 
 package proj5JonesFengZhao;
 
-import javafx.scene.control.Button;
-
-import java.awt.*;
 import java.io.File;
 
 
@@ -21,6 +18,8 @@ import java.io.File;
  * @author Jackie Hang
  * @author Matt Jones
  * @author Kevin Zhou
+ * @author Yi Feng
+ * @author Danqing Zhao
  * @version 1.0
  * @since 10-3-2018
  */
@@ -45,7 +44,6 @@ public class ToolbarController {
      * If code compiles successfully, the code will be run.
      *
      * @param curFile Reference to the currently selected file.
-     *
      */
     public void handleCompileRun(File curFile, IOConsole console) {
         runThread = new Thread(new CompileRunProcess(curFile, console));
@@ -56,15 +54,7 @@ public class ToolbarController {
      * Will stop any code running through the Compile and Run button.
      */
     public void handleStop() {
+        compileThread.interrupt();
         runThread.interrupt();
-        System.out.println("Running code is stopping");
     }
-
-    /**
-     * Helper function to build a process
-     *
-     * @param console
-     * @param command
-     * @return
-     */
 }

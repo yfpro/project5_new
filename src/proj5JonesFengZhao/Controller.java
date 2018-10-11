@@ -12,8 +12,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+
 import java.io.File;
-//TODO: erorr with closing tab and then compiling
 
 /**
  * Controller is the main controller for the application.
