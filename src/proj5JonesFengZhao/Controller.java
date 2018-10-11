@@ -69,7 +69,6 @@ public class Controller {
 
     private IOConsole ioConsole = new IOConsole();
 
-
     /**
      * Handles the About button action.
      * Creates a dialog window that displays the authors' names.
@@ -210,7 +209,7 @@ public class Controller {
      * Otherwise, it will print compilation success.
      */
     @FXML
-    private void handleCompile() {
+    private void handleCompile() throws  InterruptedException{
         File curFile = getCurrentFile();
         if (curFile != null) toolbarController.handleCompile(curFile, ioConsole);
     }
@@ -226,7 +225,7 @@ public class Controller {
      * If code compiles successfully, the code will be run.
      */
     @FXML
-    private void handleCompileRun() {
+    private void handleCompileRun() throws  InterruptedException{
         File curFile = getCurrentFile();
         if (curFile != null) toolbarController.handleCompileRun(curFile, ioConsole);
     }
@@ -237,7 +236,7 @@ public class Controller {
      */
     @FXML
     private void handleStop() {
-        toolbarController.handleStop(stopButton);
+        toolbarController.handleStop();
     }
 
     /**

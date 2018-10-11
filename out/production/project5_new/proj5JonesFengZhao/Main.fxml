@@ -18,23 +18,22 @@ Date: 10/12/18
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.input.KeyCodeCombination?>
 <?import javafx.scene.layout.VBox?>
-<?import org.fxmisc.richtext.StyleClassedTextArea?>
 
-<VBox fx:id="VBox" xmlns="http://javafx.com/javafx/8.0.121"
+<VBox xmlns="http://javafx.com/javafx/8.0.121"
       xmlns:fx="http://javafx.com/fxml/1" fx:controller="proj5JonesFengZhao.Controller">
     <MenuBar VBox.vgrow="NEVER">
 
         <Menu text="File">
-            <MenuItem fx:id="aboutMenuItem" onAction="#handleAboutMenuItemAction"
+            <MenuItem onAction="#handleAboutMenuItemAction"
                       text="About..."/>
             <SeparatorMenuItem/>
-            <MenuItem fx:id="newMenuItem" onAction="#handleNewMenuItemAction" text="New">
+            <MenuItem onAction="#handleNewMenuItemAction" text="New">
                 <accelerator>
                     <KeyCodeCombination alt="UP" code="N" control="UP" meta="DOWN"
                                         shift="UP" shortcut="UP"/>
                 </accelerator>
             </MenuItem>
-            <MenuItem fx:id="openMenuItem" onAction="#handleOpenMenuItemAction"
+            <MenuItem onAction="#handleOpenMenuItemAction"
                       text="Open...">
                 <accelerator>
                     <KeyCodeCombination alt="UP" code="O" control="UP" meta="DOWN"
@@ -63,7 +62,7 @@ Date: 10/12/18
                 </accelerator>
             </MenuItem>
             <SeparatorMenuItem/>
-            <MenuItem fx:id="exitMenuItem" onAction="#handleExitMenuItemAction"
+            <MenuItem onAction="#handleExitMenuItemAction"
                       text="Exit">
                 <accelerator>
                     <KeyCodeCombination alt="UP" code="Q" control="UP" meta="DOWN"
