@@ -8,6 +8,8 @@ Date: 10/12/18
 package proj5JonesFengZhao;
 
 import javafx.scene.control.Button;
+
+import java.awt.*;
 import java.io.File;
 
 
@@ -22,7 +24,8 @@ import java.io.File;
  * @version 1.0
  * @since 10-3-2018
  */
-class ToolbarController {
+public class ToolbarController {
+    private Thread compileThread;
     private Thread runThread;
 
     /**
@@ -30,10 +33,9 @@ class ToolbarController {
      * Otherwise, it will print compilation success.
      *
      * @param curFile Reference to the currently selected file.
-     * @return compile successful or not
      */
     public void handleCompile(File curFile, IOConsole console) {
-        Thread compileThread = new Thread(new CompileProcess(curFile, console));
+        compileThread = new Thread(new CompileProcess(curFile, console));
         compileThread.start();
     }
 
@@ -42,7 +44,8 @@ class ToolbarController {
      * Otherwise, it will print compilation success.
      * If code compiles successfully, the code will be run.
      *
-     * @param curFile
+     * @param curFile Reference to the currently selected file.
+     *
      */
     public void handleCompileRun(File curFile, IOConsole console) {
         runThread = new Thread(new CompileRunProcess(curFile, console));
@@ -51,10 +54,8 @@ class ToolbarController {
 
     /**
      * Will stop any code running through the Compile and Run button.
-     *
-     * @param stopButton Reference to the Stop Button initialized in Main.fxml
      */
-    public void handleStop(Button stopButton) {
+    public void handleStop() {
         runThread.interrupt();
         System.out.println("Running code is stopping");
     }

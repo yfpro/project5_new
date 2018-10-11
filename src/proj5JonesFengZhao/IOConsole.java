@@ -4,15 +4,10 @@ import javafx.application.Platform;
 import javafx.scene.input.KeyCode;
 import org.fxmisc.richtext.StyleClassedTextArea;
 
-import java.io.OutputStream;
-import java.io.InputStream;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
+import java.io.*;
 
 
-class IOConsole extends StyleClassedTextArea {
+public class IOConsole extends StyleClassedTextArea {
     private OutputStream outputStream;
     private OutputStream errorStream;
     private String input;
@@ -31,38 +26,34 @@ class IOConsole extends StyleClassedTextArea {
      *
      * @param input inputStream got from the process
      */
-    void readFrom(InputStream input) {
+    public void readFrom(InputStream input) {
         try {
             byte[] buffer = new byte[1024];
             int length;
             while ((length = input.read(buffer)) != -1) {
                 String result = new String(buffer, 0, length);
-                Platform.runLater(() -> {
-                    this.appendText(result + "\n");
-                });
+                Platform.runLater(() -> this.appendText(result + "\n"));
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private void writeTo() {
+    public void writeTo(OutputStream outputStream) {
         try {
-            BufferedWriter writer = new BufferedWriter(
-                    new OutputStreamWriter(outputStream));
+            OutputStreamWriter writer = new OutputStreamWriter(outputStream);
             System.out.println("Writing " + input + " to the OutputStream.");
             writer.write(input);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (IOException e1) {
+            e1.printStackTrace();
         }
     }
 
     private void handleKeyPress(KeyCode code) {
         if (code.equals(KeyCode.ENTER)) {
-            writeTo();
             input = "";
         } else {
-            if (code.isLetterKey() | code.isDigitKey()) {
+            if (code.isLetterKey() | code.isDigitKey() | code.isWhitespaceKey()) {
                 input += code.getName();
             }
         }

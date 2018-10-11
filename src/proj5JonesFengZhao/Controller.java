@@ -55,9 +55,6 @@ public class Controller {
     private Menu editMenu;
 
     @FXML
-    private Button stopButton;
-
-    @FXML
     private VBox consoleBox;
 
     @FXML
@@ -148,6 +145,7 @@ public class Controller {
     @FXML
     void handleExitMenuItemAction() {
         fileMenuController.handleExitMenuItemAction();
+        toolbarController.handleStop();
     }
 
     /**
@@ -237,7 +235,7 @@ public class Controller {
      */
     @FXML
     private void handleStop() {
-        toolbarController.handleStop(stopButton);
+        toolbarController.handleStop();
     }
 
     /**
@@ -273,17 +271,8 @@ public class Controller {
         closeMenuItem.disableProperty().bind(listProperty.emptyProperty());
     }
 
-    //TODO: Why are all of these commented out???
     private void disableEditMenu(SimpleListProperty listProperty) {
         editMenu.disableProperty().bind(listProperty.emptyProperty());
-//        undoMenuItem.disableProperty().bind(listProperty.emptyProperty());
-////        undoMenuItem.disableProperty().bind(editMenuController.getCurrentCodeArea().undoAvailableProperty());
-//        redoMenuItem.disableProperty().bind(listProperty.emptyProperty());
-////        redoMenuItem.disableProperty().bind(editMenuController.getCurrentCodeArea().undoAvailableProperty());
-//        copyMenuItem.disableProperty().bind(listProperty.emptyProperty());
-//        cutMenuItem.disableProperty().bind(listProperty.emptyProperty());
-//        pasteMenuItem.disableProperty().bind(listProperty.emptyProperty());
-//        selectAllMenuItem.disableProperty().bind(listProperty.emptyProperty());
     }
 
     /**

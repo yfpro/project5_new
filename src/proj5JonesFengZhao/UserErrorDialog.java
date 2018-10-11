@@ -18,13 +18,11 @@ import javafx.scene.control.ButtonType;
  * @author Matt Jones
  * @see Alert
  */
-class UserErrorDialog extends Alert
-{
+public class UserErrorDialog extends Alert {
     /**
      * enumeration which defines the contents of error alerts of certain types
      */
-    enum ErrorType
-    {
+    enum ErrorType {
         SAVING_ERROR("Error",
                 "Saving Error",
                 "File %s could not be saved!"),
@@ -38,8 +36,8 @@ class UserErrorDialog extends Alert
         final String TITLE;
         final String HEADER;
         final String CONTENT;
-        ErrorType(final String title, final String header, final String content)
-        {
+
+        ErrorType(final String title, final String header, final String content) {
             TITLE = title;
             HEADER = header;
             CONTENT = content;
@@ -50,16 +48,13 @@ class UserErrorDialog extends Alert
      * Constructor which requires a predefined ErrorType in order to
      * construct itself with predefined contents.
      *
-     * @param type enum of variety ErrorType
+     * @param type     enum of variety ErrorType
      * @param filename optionally pass the name of the file with which the error
      *                 occurred.
      */
-    UserErrorDialog(ErrorType type, String filename)
-    {
+    UserErrorDialog(ErrorType type, String filename) {
         super(AlertType.NONE);
-
         this.getButtonTypes().add(ButtonType.OK);
-
         this.setTitle(type.TITLE);
         this.setHeaderText(type.HEADER);
         this.setContentText(String.format(type.CONTENT, filename));
@@ -68,8 +63,7 @@ class UserErrorDialog extends Alert
     /**
      * Fallback constructor
      */
-    UserErrorDialog(ErrorType type)
-    {
+    UserErrorDialog(ErrorType type) {
         this(type, "in question");
     }
 }
