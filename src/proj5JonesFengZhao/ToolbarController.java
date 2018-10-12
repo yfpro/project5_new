@@ -9,6 +9,7 @@ package proj5JonesFengZhao;
 
 import javafx.scene.control.Button;
 import java.io.File;
+import java.io.IOException;
 import java.sql.SQLOutput;
 
 
@@ -26,7 +27,7 @@ import java.sql.SQLOutput;
  * @since 10-3-2018
  */
 public class ToolbarController {
-    private Thread compileThread;
+    private CompileProcess compileProcess;
     private Thread runThread;
     private Process process;
 
@@ -38,10 +39,10 @@ public class ToolbarController {
      */
     public void handleCompile(File curFile, IOConsole console, Button stopButton) throws  InterruptedException{
         stopButton.setDisable(false);
-        CompileProcess compile = new CompileProcess(curFile, console, stopButton, false);
-        Thread compileThread = new Thread(compile);
+        compileProcess = new CompileProcess(curFile, console, stopButton, false);
+        Thread compileThread = new Thread(compileProcess);
         compileThread.start();
-        this.process = compile.getProcess();
+//        this.process = compile.getProcess();
     }
 
     /**
@@ -53,10 +54,10 @@ public class ToolbarController {
      */
     public void handleCompileRun(File curFile, IOConsole console, Button stopButton) throws  InterruptedException{
         stopButton.setDisable(false);
-        CompileProcess run = new CompileProcess(curFile, console, stopButton, true);
-        Thread runThread = new Thread(run);
+        compileProcess = new CompileProcess(curFile, console, stopButton, true);
+        Thread runThread = new Thread(compileProcess);
         runThread.start();
-        this.process = run.getProcess();
+//        this.process = run.getProcess();
     }
 
     /**
@@ -64,8 +65,17 @@ public class ToolbarController {
      *
      */
     public void handleStop() {
+        this.process = this.compileProcess.getProcess();
+        System.out.println(this.process);
         if(this.process!=null) {
-            this.process.destroy();
+            try {
+                process.getInputStream().close();
+                process.getOutputStream().close();
+                process.getErrorStream().close();
+                this.process.destroy();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             System.out.println("Running code is stopping");
         }else{
             System.out.println("nothing to stop");
