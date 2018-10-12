@@ -46,7 +46,6 @@ public class CompileProcess implements Runnable {
         String path = curFile.getAbsolutePath();
         String[] command = {"javac", path};
         buildProcess(console, command);
-        stopButton.setDisable(true);
         this.process = buildProcess(console, command);
         if(ifRun){
             if (this.process!=null) {
@@ -57,6 +56,7 @@ public class CompileProcess implements Runnable {
                 this.process = buildProcess(console, runCommand);
             }
         }
+        stopButton.setDisable(true);
     }
     public Process getProcess(){
         return(this.process);
@@ -86,7 +86,8 @@ public class CompileProcess implements Runnable {
 
             OutputStream processInput = process.getOutputStream();
             console.setOutputStream(processInput);
-            int errCode = process.waitFor();
+            process.waitFor();
+
             this.process = process;
             return(process);
         } catch (Exception e) {

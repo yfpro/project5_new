@@ -29,7 +29,7 @@ public class CompileRunProcess extends CompileProcess {
     private Button stopButton;
 
     CompileRunProcess(File curFile, IOConsole console, Button stopButton) {
-        super(curFile, console, stopButton);
+        super(curFile, console, stopButton, false);
         this.curFile = curFile;
         this.console = console;
         this.stopButton = stopButton;
@@ -46,7 +46,7 @@ public class CompileRunProcess extends CompileProcess {
         String path = curFile.getAbsolutePath();
         String[] compileCommand = {"javac", path};
 
-        if (buildProcess(console, compileCommand)) {
+        if (buildProcess(console, compileCommand) != null) {
             path = curFile.getAbsoluteFile().getParent();
             String fileName = curFile.getName();
             String[] runCommand = {"java", "-cp", path, fileName.substring(0,
