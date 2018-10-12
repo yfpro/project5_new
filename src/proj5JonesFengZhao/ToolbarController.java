@@ -8,10 +8,8 @@ Date: 10/12/18
 package proj5JonesFengZhao;
 
 import javafx.scene.control.Button;
-
-import java.awt.*;
 import java.io.File;
-import java.util.ArrayList;
+import java.sql.SQLOutput;
 
 
 /**
@@ -30,6 +28,7 @@ import java.util.ArrayList;
 public class ToolbarController {
     private Thread compileThread;
     private Thread runThread;
+    private Process process;
 
     /**
      * Will compile the code and print error codes in the terminal if necessary.
@@ -37,10 +36,12 @@ public class ToolbarController {
      *
      * @param curFile Reference to the currently selected file.
      */
-    public void handleCompile(File curFile, IOConsole console, Button stopButton) {
+    public void handleCompile(File curFile, IOConsole console, Button stopButton) throws  InterruptedException{
         stopButton.setDisable(false);
-        compileThread = new Thread(new CompileProcess(curFile, console, stopButton));
+        CompileProcess compile = new CompileProcess(curFile, console, stopButton, false);
+        Thread compileThread = new Thread(compile);
         compileThread.start();
+        this.process = compile.getProcess();
     }
 
     /**
@@ -50,17 +51,24 @@ public class ToolbarController {
      *
      * @param curFile Reference to the currently selected file.
      */
-    public void handleCompileRun(File curFile, IOConsole console, Button stopButton) {
+    public void handleCompileRun(File curFile, IOConsole console, Button stopButton) throws  InterruptedException{
         stopButton.setDisable(false);
-        runThread = new Thread(new CompileRunProcess(curFile, console, stopButton));
+        CompileProcess run = new CompileProcess(curFile, console, stopButton, true);
+        Thread runThread = new Thread(run);
         runThread.start();
+        this.process = run.getProcess();
     }
 
     /**
      * Will stop any code running through the Compile and Run button.
+     *
      */
     public void handleStop() {
-        compileThread.interrupt();
-        runThread.interrupt();
+        if(this.process!=null) {
+            this.process.destroy();
+            System.out.println("Running code is stopping");
+        }else{
+            System.out.println("nothing to stop");
+        }
     }
 }

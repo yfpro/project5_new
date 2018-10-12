@@ -17,7 +17,7 @@ import javafx.scene.Parent;
 /**
  * Creates a JavaFX application that contains an area for
  * 1) a TabPane,
- * which will contain  tabs at the user's discretion, the tabs themselves
+ * which will cfontain  tabs at the user's discretion, the tabs themselves
  * being populated with CodeAreas inside of VirtualizedScrollPanes
  * and 2) a MenuBar with File and Edit menus,
  * which contain MenuItems that facilitate the modification of the Tabs,

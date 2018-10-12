@@ -27,10 +27,13 @@ public class CompileProcess implements Runnable {
     private File curFile;
     private IOConsole console;
     private Button stopButton;
+    private Process process;
+    private boolean ifRun;
 
-    CompileProcess(File curFile, IOConsole console, Button stopButton) {
+    CompileProcess(File curFile, IOConsole console, Button stopButton, boolean ifRun) {
         this.curFile = curFile;
         this.console = console;
+        this.ifRun = ifRun;
         this.stopButton = stopButton;
     }
 
@@ -44,6 +47,19 @@ public class CompileProcess implements Runnable {
         String[] command = {"javac", path};
         buildProcess(console, command);
         stopButton.setDisable(true);
+        this.process = buildProcess(console, command);
+        if(ifRun){
+            if (this.process!=null) {
+                path = curFile.getAbsoluteFile().getParent();
+                String fileName = curFile.getName();
+                String[] runCommand = {"java", "-cp", path, fileName.substring(0,
+                        fileName.length() - 5)};
+                this.process = buildProcess(console, runCommand);
+            }
+        }
+    }
+    public Process getProcess(){
+        return(this.process);
     }
 
     /**
@@ -57,7 +73,7 @@ public class CompileProcess implements Runnable {
      * @return Will return a boolean contingent on the success of the process. For
      * example, if the compile process fails, will return false.
      */
-    public boolean buildProcess(IOConsole console, String[] command) {
+    public Process buildProcess(IOConsole console, String[] command) {
         try {
             ProcessBuilder pb = new ProcessBuilder(command);
             pb.redirectErrorStream(true);
@@ -70,12 +86,12 @@ public class CompileProcess implements Runnable {
 
             OutputStream processInput = process.getOutputStream();
             console.setOutputStream(processInput);
-
             int errCode = process.waitFor();
-            return errCode == 0;
+            this.process = process;
+            return(process);
         } catch (Exception e) {
             e.printStackTrace();
-            return false;
+            return(null);
         }
     }
 }
