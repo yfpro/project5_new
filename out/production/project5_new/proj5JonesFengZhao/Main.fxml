@@ -22,7 +22,6 @@ Date: 10/12/18
 <VBox xmlns="http://javafx.com/javafx/8.0.121"
       xmlns:fx="http://javafx.com/fxml/1" fx:controller="proj5JonesFengZhao.Controller">
     <MenuBar VBox.vgrow="NEVER">
-
         <Menu text="File">
             <MenuItem onAction="#handleAboutMenuItemAction"
                       text="About..."/>
@@ -123,7 +122,7 @@ Date: 10/12/18
     <SplitPane dividerPositions="0.8" orientation="VERTICAL" VBox.vgrow="ALWAYS">
         <TabPane fx:id="tabPane" VBox.vgrow="ALWAYS">
         </TabPane>
-        <VBox fx:id="consoleBox">
+        <VBox fx:id="consoleBox" VBox.vgrow="ALWAYS">
         </VBox>
     </SplitPane>
 </VBox>

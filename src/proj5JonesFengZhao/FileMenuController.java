@@ -456,6 +456,7 @@ public class FileMenuController {
             alert.setTitle("Alert");
             Optional<ButtonType> result = alert.showAndWait();
 
+            // If the user chooses yes,
             if (result.get() == ButtonType.YES) {
                 if (handleSaveMenuItemAction()) return this.tabFileMap.get(currentTab);
                 else return null;
