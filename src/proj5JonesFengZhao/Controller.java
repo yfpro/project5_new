@@ -256,8 +256,9 @@ public class Controller {
     /**
      * This function is called after the FXML fields are populated.
      * Initializes the tab file map with the default tab.
-     * and passes necessary items to fileMenuController and editMenuController
-     * Disable saveAs, save, close menu items and edit menu when tabless
+     * and passes necessary items to fileMenuController and editMenuController.
+     * Disable saveAs, save, close menu items and edit menu when tabless.
+     * Add the console box at the bottom of the window.
      */
     public void initialize() {
         fileMenuController.receiveFXMLElements(this.passFXMLElements());
