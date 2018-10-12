@@ -14,8 +14,9 @@ import java.sql.SQLOutput;
 
 
 /**
- * This class is the controller for all of the toolbar functionality.
- * Specifically the Hello and Goodbye Buttons.
+ * This class is the controller for all of the toolbar functionalities.
+ * This class handles the actions of the Compile Button,
+ * the Compile & Run Button, and the Stop Button.
  *
  * @author Kevin Ahn
  * @author Jackie Hang
