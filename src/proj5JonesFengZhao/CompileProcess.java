@@ -20,6 +20,7 @@ import java.io.OutputStream;
  * Specifically this class will build and run a compile process.
  *
  * @author Matt Jones
+ * @author Yi Feng
  * @version 1.0
  * @since 10-10-2018
  */
@@ -66,6 +67,11 @@ public class CompileProcess implements Runnable {
         }
         stopButton.setDisable(true);
     }
+
+    /**
+     * getter of process
+     * @return Process
+     */
     public Process getProcess(){
         return(this.process);
     }

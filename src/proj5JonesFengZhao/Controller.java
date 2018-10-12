@@ -57,6 +57,12 @@ public class Controller {
     private Menu editMenu;
 
     @FXML
+    private Button compileButton;
+
+    @FXML
+    private Button compileRunButton;
+
+    @FXML
     private Button stopButton;
 
     @FXML
@@ -268,6 +274,10 @@ public class Controller {
 
         // the edit menu is disabled when there is no tab
         editMenu.disableProperty().bind(listProperty.emptyProperty());
+
+        // the compile and compile&run buttons are disabled when there is no tab
+        compileButton.disableProperty().bind(listProperty.emptyProperty());
+        compileRunButton.disableProperty().bind(listProperty.emptyProperty());
 
 
         // add the console to the VBox at the bottom
