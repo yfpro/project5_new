@@ -9,6 +9,7 @@ package proj5JonesFengZhao;
 
 import javafx.application.Platform;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import org.fxmisc.richtext.StyleClassedTextArea;
 
 import java.io.InputStream;
@@ -24,7 +25,11 @@ public class IOConsole extends StyleClassedTextArea {
 
     IOConsole() {
         input = "";
-        this.setOnKeyPressed(event -> handleKeyPress(event.getCode()));
+        this.setOnKeyTyped(event -> handleKeyPress(event));
+    }
+
+    public void setOutputStream(OutputStream outputStream) {
+        this.outputStream = outputStream;
     }
 
     /**
@@ -33,19 +38,11 @@ public class IOConsole extends StyleClassedTextArea {
      * @param input inputStream got from the process
      */
     public void readFrom(InputStream input) {
-        try {
-            byte[] buffer = new byte[1024];
-            int length;
-            while ((length = input.read(buffer)) != -1) {
-                String result = new String(buffer, 0, length);
-                Platform.runLater(() -> this.appendText(result + "\n"));
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        Thread readFrom = new Thread(new ReadFromProcess(input, this));
+        readFrom.run();
     }
 
-    public void writeTo(OutputStream outputStream) {
+    public void writeTo() {
         try {
             OutputStreamWriter writer = new OutputStreamWriter(outputStream);
             System.out.println("Writing " + input + " to the OutputStream.");
@@ -55,13 +52,12 @@ public class IOConsole extends StyleClassedTextArea {
         }
     }
 
-    private void handleKeyPress(KeyCode code) {
-        if (code.equals(KeyCode.ENTER)) {
+    private void handleKeyPress(KeyEvent keyEvent) {
+        input += keyEvent.getCharacter();
+        if (keyEvent.getCharacter().equals("\r")) {
+            input += "\n";
+            this.writeTo();
             input = "";
-        } else {
-            if (code.isLetterKey() | code.isDigitKey() | code.isWhitespaceKey()) {
-                input += code.getName();
-            }
         }
     }
 }

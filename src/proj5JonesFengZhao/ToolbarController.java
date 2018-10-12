@@ -7,7 +7,11 @@ Date: 10/12/18
 
 package proj5JonesFengZhao;
 
+import javafx.scene.control.Button;
+
+import java.awt.*;
 import java.io.File;
+import java.util.ArrayList;
 
 
 /**
@@ -33,8 +37,9 @@ public class ToolbarController {
      *
      * @param curFile Reference to the currently selected file.
      */
-    public void handleCompile(File curFile, IOConsole console) {
-        compileThread = new Thread(new CompileProcess(curFile, console));
+    public void handleCompile(File curFile, IOConsole console, Button stopButton) {
+        stopButton.setDisable(false);
+        compileThread = new Thread(new CompileProcess(curFile, console, stopButton));
         compileThread.start();
     }
 
@@ -45,8 +50,9 @@ public class ToolbarController {
      *
      * @param curFile Reference to the currently selected file.
      */
-    public void handleCompileRun(File curFile, IOConsole console) {
-        runThread = new Thread(new CompileRunProcess(curFile, console));
+    public void handleCompileRun(File curFile, IOConsole console, Button stopButton) {
+        stopButton.setDisable(false);
+        runThread = new Thread(new CompileRunProcess(curFile, console, stopButton));
         runThread.start();
     }
 

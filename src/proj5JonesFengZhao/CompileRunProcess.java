@@ -8,6 +8,8 @@ Date: 10/12/18
 
 package proj5JonesFengZhao;
 
+import javafx.scene.control.Button;
+
 import java.io.File;
 
 /**
@@ -24,15 +26,17 @@ import java.io.File;
 public class CompileRunProcess extends CompileProcess {
     private File curFile;
     private IOConsole console;
+    private Button stopButton;
 
-    CompileRunProcess(File curFile, IOConsole console) {
-        super(curFile, console);
+    CompileRunProcess(File curFile, IOConsole console, Button stopButton) {
+        super(curFile, console, stopButton);
         this.curFile = curFile;
         this.console = console;
+        this.stopButton = stopButton;
     }
 
     /**
-     * This will find the path of the selected file at the moment the compile button
+     * This will find the path of the selected file at the moment the compile stopButton
      * was pressed. The buildProcess function is then called to build a compile process
      * using the javac. If the compilation does not fail, second process will be
      * created that will run the compiled class file.
@@ -49,5 +53,6 @@ public class CompileRunProcess extends CompileProcess {
                     fileName.length() - 5)};
             buildProcess(console, runCommand);
         }
+        stopButton.setDisable(true);
     }
 }

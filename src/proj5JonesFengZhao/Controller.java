@@ -14,6 +14,9 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Controller is the main controller for the application.
@@ -53,9 +56,16 @@ public class Controller {
 
     @FXML
     private Menu editMenu;
-
     @FXML
     private VBox consoleBox;
+    @FXML
+    private Button compileButton;
+    @FXML
+    private Button compileRunButton;
+    @FXML
+    private Button stopButton;
+
+
 
     @FXML
     private Stage primaryStage;
@@ -210,7 +220,8 @@ public class Controller {
     @FXML
     private void handleCompile() {
         File curFile = getCurrentFile();
-        if (curFile != null) toolbarController.handleCompile(curFile, ioConsole);
+        if (curFile != null)
+            toolbarController.handleCompile(curFile, ioConsole, stopButton);
     }
 
     private File getCurrentFile() {
@@ -226,7 +237,8 @@ public class Controller {
     @FXML
     private void handleCompileRun() {
         File curFile = getCurrentFile();
-        if (curFile != null) toolbarController.handleCompileRun(curFile, ioConsole);
+        if (curFile != null)
+            toolbarController.handleCompileRun(curFile, ioConsole, stopButton);
     }
 
     /**
@@ -258,8 +270,10 @@ public class Controller {
 
         SimpleListProperty<Tab> listProperty =
                 new SimpleListProperty<>(tabPane.getTabs());
+
         disableFileMenu(listProperty);
         disableEditMenu(listProperty);
+        disableToolbarButtons(listProperty);
 
         // add the console to the VBox at the bottom
         consoleBox.getChildren().add(ioConsole);
@@ -273,6 +287,12 @@ public class Controller {
 
     private void disableEditMenu(SimpleListProperty listProperty) {
         editMenu.disableProperty().bind(listProperty.emptyProperty());
+    }
+
+    private void disableToolbarButtons(SimpleListProperty listProperty) {
+        compileButton.disableProperty().bind(listProperty.emptyProperty());
+        compileRunButton.disableProperty().bind(listProperty.emptyProperty());
+        stopButton.setDisable(true);
     }
 
     /**

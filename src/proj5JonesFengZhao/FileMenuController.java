@@ -51,6 +51,10 @@ public class FileMenuController {
     private Map<Tab, File> tabFileMap = new HashMap<>();
     private int untitledCounter = 1;
 
+    public Map<Tab, File> getMap() {
+        return tabFileMap;
+    }
+
     /**
      * Handles the About button action.
      * Creates a dialog window that displays the authors' names.

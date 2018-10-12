@@ -8,6 +8,8 @@ Date: 10/12/18
 
 package proj5JonesFengZhao;
 
+import javafx.scene.control.Button;
+
 import java.io.File;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -24,11 +26,12 @@ import java.io.OutputStream;
 public class CompileProcess implements Runnable {
     private File curFile;
     private IOConsole console;
+    private Button stopButton;
 
-
-    CompileProcess(File curFile, IOConsole console) {
+    CompileProcess(File curFile, IOConsole console, Button stopButton) {
         this.curFile = curFile;
         this.console = console;
+        this.stopButton = stopButton;
     }
 
     /**
@@ -40,6 +43,7 @@ public class CompileProcess implements Runnable {
         String path = curFile.getAbsolutePath();
         String[] command = {"javac", path};
         buildProcess(console, command);
+        stopButton.setDisable(true);
     }
 
     /**
@@ -65,7 +69,7 @@ public class CompileProcess implements Runnable {
             console.readFrom(processOutput);
 
             OutputStream processInput = process.getOutputStream();
-            console.writeTo(processInput);
+            console.setOutputStream(processInput);
 
             int errCode = process.waitFor();
             return errCode == 0;
