@@ -73,6 +73,8 @@ public class ToolbarController {
                 process.getOutputStream().close();
                 process.getErrorStream().close();
                 this.process.destroy();
+                System.out.println(process.pid());
+
             } catch (IOException e) {
                 e.printStackTrace();
             }

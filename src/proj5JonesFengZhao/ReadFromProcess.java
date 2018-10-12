@@ -25,6 +25,7 @@ public class ReadFromProcess implements Runnable {
             while ((length = input.read(buffer)) != -1) {
                 String result = new String(buffer, 0, length);
                 Platform.runLater(() -> console.appendText(result + "\n"));
+                Thread.sleep(100);
             }
         } catch (Exception e) {
             e.printStackTrace();
