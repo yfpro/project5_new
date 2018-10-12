@@ -150,10 +150,12 @@ public class Controller {
 
     /**
      * Handles the Exit button action.
-     * Exits the program when the Exit button is clicked.
+     * Stops the running process
+     * and exits the program when the Exit button is clicked.
      */
     @FXML
     void handleExitMenuItemAction() {
+        toolbarController.handleStop();
         fileMenuController.handleExitMenuItemAction();
     }
 
