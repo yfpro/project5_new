@@ -49,14 +49,13 @@ public class IOConsole extends StyleClassedTextArea {
      */
     public void readFrom(InputStream input) {
         Thread readFrom = new Thread(new ReadFromProcess(input, this));
-        readFrom.run();
+        readFrom.start();
     }
 
     //TODO: WHAT DOES THIS FUNCTION DO?
     public void writeTo() {
         try {
             OutputStreamWriter writer = new OutputStreamWriter(outputStream);
-            System.out.println("Writing " + userInput + " to the OutputStream.");
             writer.write(userInput);
         } catch (IOException e1) {
             e1.printStackTrace();

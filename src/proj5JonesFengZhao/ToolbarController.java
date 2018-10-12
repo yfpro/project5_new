@@ -66,21 +66,16 @@ public class ToolbarController {
      */
     public void handleStop() {
         this.process = this.compileProcess.getProcess();
-        System.out.println(this.process);
         if(this.process!=null) {
             try {
                 process.getInputStream().close();
                 process.getOutputStream().close();
                 process.getErrorStream().close();
                 this.process.destroy();
-                System.out.println(process.pid());
 
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            System.out.println("Running code is stopping");
-        }else{
-            System.out.println("nothing to stop");
         }
     }
 }

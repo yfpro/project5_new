@@ -54,7 +54,6 @@ public class CompileProcess implements Runnable {
     public void run() {
         String path = curFile.getAbsolutePath();
         String[] command = {"javac", path};
-//        buildProcess(console, command);
         this.process = buildProcess(console, command);
         if(ifRun){
             if (this.process!=null) {
@@ -92,7 +91,6 @@ public class CompileProcess implements Runnable {
             ProcessBuilder pb = new ProcessBuilder(command);
             pb.redirectErrorStream(true);
             Process process = pb.start();
-            System.out.println(process.pid());
             InputStream i = process.getErrorStream();
             console.readFrom(i);
 
