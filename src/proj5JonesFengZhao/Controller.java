@@ -12,11 +12,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import org.fxmisc.flowless.VirtualizedScrollPane;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+//TODO: erorr with closing tab and then compiling
 
 /**
  * Controller is the main controller for the application.
@@ -56,16 +55,12 @@ public class Controller {
 
     @FXML
     private Menu editMenu;
-    @FXML
-    private VBox consoleBox;
-    @FXML
-    private Button compileButton;
-    @FXML
-    private Button compileRunButton;
+
     @FXML
     private Button stopButton;
 
-
+    @FXML
+    private VBox consoleBox;
 
     @FXML
     private Stage primaryStage;
@@ -154,7 +149,6 @@ public class Controller {
     @FXML
     void handleExitMenuItemAction() {
         fileMenuController.handleExitMenuItemAction();
-        toolbarController.handleStop();
     }
 
     /**
@@ -219,13 +213,10 @@ public class Controller {
     @FXML
     private void handleCompile() throws  InterruptedException{
         File curFile = getCurrentFile();
-        if (curFile != null)
-            toolbarController.handleCompile(curFile, ioConsole, stopButton);
+        if (curFile != null) toolbarController.handleCompile(curFile, ioConsole, stopButton);
     }
 
-    private File getCurrentFile() {
-        return fileMenuController.getCurrentFile();
-    }
+
 
     /**
      * Handles the Compile and Run button action.
@@ -236,8 +227,7 @@ public class Controller {
     @FXML
     private void handleCompileRun() throws  InterruptedException{
         File curFile = getCurrentFile();
-        if (curFile != null)
-            toolbarController.handleCompileRun(curFile, ioConsole, stopButton);
+        if (curFile != null) toolbarController.handleCompileRun(curFile, ioConsole, stopButton);
     }
 
     /**
@@ -260,7 +250,8 @@ public class Controller {
     /**
      * This function is called after the FXML fields are populated.
      * Initializes the tab file map with the default tab.
-     * and passes necessary items
+     * and passes necessary items to fileMenuController and editMenuController
+     * Disable saveAs, save, close menu items and edit menu when tabless
      */
     public void initialize() {
         fileMenuController.receiveFXMLElements(this.passFXMLElements());
@@ -270,28 +261,35 @@ public class Controller {
         SimpleListProperty<Tab> listProperty =
                 new SimpleListProperty<>(tabPane.getTabs());
 
-        disableFileMenu(listProperty);
-        disableEditMenu(listProperty);
-        disableToolbarButtons(listProperty);
-
-        // add the console to the VBox at the bottom
-        consoleBox.getChildren().add(ioConsole);
-    }
-
-    private void disableFileMenu(SimpleListProperty listProperty) {
+        // the saveAs, save, and close menu items are disabled when there is no tab
         saveAsMenuItem.disableProperty().bind(listProperty.emptyProperty());
         saveMenuItem.disableProperty().bind(listProperty.emptyProperty());
         closeMenuItem.disableProperty().bind(listProperty.emptyProperty());
-    }
 
-    private void disableEditMenu(SimpleListProperty listProperty) {
+        // the edit menu is disabled when there is no tab
         editMenu.disableProperty().bind(listProperty.emptyProperty());
+
+
+        // add the console to the VBox at the bottom
+        consoleBox.getChildren().add(new VirtualizedScrollPane<>(ioConsole));
     }
 
-    private void disableToolbarButtons(SimpleListProperty listProperty) {
-        compileButton.disableProperty().bind(listProperty.emptyProperty());
-        compileRunButton.disableProperty().bind(listProperty.emptyProperty());
-        stopButton.setDisable(true);
+
+
+    /**
+     * helper function for handleCompile
+     * if there is unsaved changes in the file, ask the user whether to save before
+     * compile
+     * if the user clicks yes, save the current tab return the saved file
+     * if the user clicks no, (1) if the file has been saved before, return the old
+     * saved file
+     * (2) if the file has not been saved, return null
+     * if the user clicks cancel, return null
+     *
+     * @return a File object of the current file
+     */
+    private File getCurrentFile() {
+        return fileMenuController.getCurrentFile();
     }
 
     /**

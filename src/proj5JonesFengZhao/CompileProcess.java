@@ -23,6 +23,7 @@ import java.io.OutputStream;
  * @version 1.0
  * @since 10-10-2018
  */
+
 public class CompileProcess implements Runnable {
     private File curFile;
     private IOConsole console;
@@ -30,6 +31,13 @@ public class CompileProcess implements Runnable {
     private Process process;
     private boolean ifRun;
 
+    /**
+     * Constructor
+     * @param curFile
+     * @param console
+     * @param stopButton
+     * @param ifRun
+     */
     CompileProcess(File curFile, IOConsole console, Button stopButton, boolean ifRun) {
         this.curFile = curFile;
         this.console = console;
@@ -81,11 +89,15 @@ public class CompileProcess implements Runnable {
             InputStream i = process.getErrorStream();
             console.readFrom(i);
 
+            // let the console read from the process's output stream
             InputStream processOutput = process.getInputStream();
             console.readFrom(processOutput);
 
+            // set the process's input stream to the console's output stream
             OutputStream processInput = process.getOutputStream();
             console.setOutputStream(processInput);
+
+            //wait for the process to complete
             process.waitFor();
 
             this.process = process;

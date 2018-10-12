@@ -17,17 +17,27 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.IOException;
 
-
+/**
+ * This IOConsole class extends the StyleCalssedTextArea.
+ * It 
+ * 
+ */
 public class IOConsole extends StyleClassedTextArea {
     private OutputStream outputStream;
-    private OutputStream errorStream;
-    private String input;
+    private String userInput;
 
+    /**
+     * Constructor
+     */
     IOConsole() {
-        input = "";
+        userInput = "";
         this.setOnKeyTyped(event -> handleKeyPress(event));
     }
 
+    /**
+     * set the console's output stream to the input OutpusStream
+     * @param outputStream
+     */
     public void setOutputStream(OutputStream outputStream) {
         this.outputStream = outputStream;
     }
@@ -42,22 +52,24 @@ public class IOConsole extends StyleClassedTextArea {
         readFrom.run();
     }
 
+    //TODO: WHAT DOES THIS FUNCTION DO?
     public void writeTo() {
         try {
             OutputStreamWriter writer = new OutputStreamWriter(outputStream);
-            System.out.println("Writing " + input + " to the OutputStream.");
-            writer.write(input);
+            System.out.println("Writing " + userInput + " to the OutputStream.");
+            writer.write(userInput);
         } catch (IOException e1) {
             e1.printStackTrace();
         }
     }
-
+    
+    //TODO: Are we using handleKeyTyped or Pressed?
     private void handleKeyPress(KeyEvent keyEvent) {
-        input += keyEvent.getCharacter();
+        userInput += keyEvent.getCharacter();
         if (keyEvent.getCharacter().equals("\r")) {
-            input += "\n";
+            userInput += "\n";
             this.writeTo();
-            input = "";
+            userInput = "";
         }
     }
 }

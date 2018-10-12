@@ -122,7 +122,7 @@ Date: 10/12/18
     <SplitPane dividerPositions="0.8" orientation="VERTICAL" VBox.vgrow="ALWAYS">
         <TabPane fx:id="tabPane" VBox.vgrow="ALWAYS">
         </TabPane>
-        <VBox fx:id="consoleBox">
+        <VBox fx:id="consoleBox" VBox.vgrow="ALWAYS">
         </VBox>
     </SplitPane>
 </VBox>

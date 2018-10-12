@@ -8,6 +8,11 @@ public class ReadFromProcess implements Runnable {
     private InputStream input;
     private IOConsole console;
 
+    /**
+     * Constructor
+     * @param input
+     * @param console
+     */
     ReadFromProcess(InputStream input, IOConsole console) {
         this.input = input;
         this.console = console;
