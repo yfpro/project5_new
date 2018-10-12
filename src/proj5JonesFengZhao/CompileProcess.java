@@ -68,7 +68,7 @@ public class CompileProcess implements Runnable {
     }
 
     /**
-     * getter of process
+     * Getter of process
      * @return Process
      */
     public Process getProcess(){

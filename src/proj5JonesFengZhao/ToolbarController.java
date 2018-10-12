@@ -42,7 +42,6 @@ public class ToolbarController {
         compileProcess = new CompileProcess(curFile, console, stopButton, false);
         Thread compileThread = new Thread(compileProcess);
         compileThread.start();
-//        this.process = compile.getProcess();
     }
 
     /**
@@ -57,7 +56,6 @@ public class ToolbarController {
         compileProcess = new CompileProcess(curFile, console, stopButton, true);
         Thread runThread = new Thread(compileProcess);
         runThread.start();
-//        this.process = run.getProcess();
     }
 
     /**
