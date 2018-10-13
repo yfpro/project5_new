@@ -38,7 +38,7 @@ public class ToolbarController {
      * @param stopButton
      * @throws InterruptedException
      */
-    public void handleCompile(File curFile, IOConsole console, Button stopButton) throws  InterruptedException{
+    public void handleCompile(File curFile, IOConsole console, Button stopButton) {
 
         // enable the stop button
         stopButton.setDisable(false);
@@ -56,7 +56,7 @@ public class ToolbarController {
      * @param stopButton
      * @throws InterruptedException
      */
-    public void handleCompileRun(File curFile, IOConsole console, Button stopButton) throws  InterruptedException{
+    public void handleCompileRun(File curFile, IOConsole console, Button stopButton) {
 
         // enable the stop button
         stopButton.setDisable(false);

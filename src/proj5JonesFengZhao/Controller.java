@@ -206,7 +206,7 @@ public class Controller {
      * If there is not a saved file in the current tab, nothing happens.
      */
     @FXML
-    private void handleCompile() throws  InterruptedException{
+    private void handleCompile() {
         File curFile = getCurrentFile();
         if (curFile != null) toolbarController.handleCompile(curFile, ioConsole, stopButton);
     }
@@ -220,7 +220,7 @@ public class Controller {
      * If there is not a saved file in the current tab, nothing happens.
      */
     @FXML
-    private void handleCompileRun() throws  InterruptedException{
+    private void handleCompileRun() {
         File curFile = getCurrentFile();
         if (curFile != null) toolbarController.handleCompileRun(curFile, ioConsole, stopButton);
     }
