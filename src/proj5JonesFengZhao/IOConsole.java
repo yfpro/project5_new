@@ -7,11 +7,8 @@ Date: 10/12/18
 
 package proj5JonesFengZhao;
 
-import javafx.application.Platform;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import org.fxmisc.richtext.StyleClassedTextArea;
-
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
@@ -19,12 +16,17 @@ import java.io.IOException;
 
 /**
  * This IOConsole class extends the StyleCalssedTextArea.
- * It 
- * 
+ * It contains a String userInput to store the user's input,
+ * and an outputStream for writing the user input to a process.
+ *
+ * @author Yi Feng
+ * @author Matt Jones
+ * @author Danqing Zhao
  */
 public class IOConsole extends StyleClassedTextArea {
-    private OutputStream outputStream;
     private String userInput;
+    private OutputStream outputStream;
+
 
     /**
      * Constructor
@@ -52,7 +54,7 @@ public class IOConsole extends StyleClassedTextArea {
         readFrom.start();
     }
 
-    //TODO: WHAT DOES THIS FUNCTION DO?
+    //TODO: Not using buffer writer?
     public void writeTo() {
         try {
             OutputStreamWriter writer = new OutputStreamWriter(outputStream);
@@ -62,7 +64,7 @@ public class IOConsole extends StyleClassedTextArea {
         }
     }
     
-    //TODO: Are we using handleKeyTyped or Pressed?
+    //TODO: So we are not checking ENTER?
     private void handleKeyPress(KeyEvent keyEvent) {
         userInput += keyEvent.getCharacter();
         if (keyEvent.getCharacter().equals("\r")) {

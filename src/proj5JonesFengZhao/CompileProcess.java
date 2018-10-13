@@ -21,6 +21,7 @@ import java.io.OutputStream;
  *
  * @author Matt Jones
  * @author Yi Feng
+ * @author Danqing Zhao
  * @version 1.0
  * @since 10-10-2018
  */
@@ -34,10 +35,11 @@ public class CompileProcess implements Runnable {
 
     /**
      * Constructor
-     * @param curFile
-     * @param console
-     * @param stopButton
-     * @param ifRun
+     * @param curFile the file to be compiled (and run)
+     * @param console the console
+     * @param stopButton the stopButton
+     * @param ifRun if ifRun is false, it only compiles the file
+     *              if ifRun is true, it both compiles and runs the file
      */
     CompileProcess(File curFile, IOConsole console, Button stopButton, boolean ifRun) {
         this.curFile = curFile;
@@ -91,8 +93,10 @@ public class CompileProcess implements Runnable {
             ProcessBuilder pb = new ProcessBuilder(command);
             pb.redirectErrorStream(true);
             Process process = pb.start();
-            InputStream i = process.getErrorStream();
-            console.readFrom(i);
+
+            // let the console read from the process's error stream
+            InputStream processErrorStream = process.getErrorStream();
+            console.readFrom(processErrorStream);
 
             // let the console read from the process's output stream
             InputStream processOutput = process.getInputStream();
