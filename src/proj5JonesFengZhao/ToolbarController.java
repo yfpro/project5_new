@@ -32,34 +32,43 @@ public class ToolbarController {
     private Process process;
 
     /**
-     * Will compile the code and print error codes in the terminal if necessary.
-     * Otherwise, it will print compilation success.
-     *
-     * @param curFile Reference to the currently selected file.
+     * compile the current file in a new thread
+     * @param curFile the current file
+     * @param console
+     * @param stopButton
+     * @throws InterruptedException
      */
     public void handleCompile(File curFile, IOConsole console, Button stopButton) throws  InterruptedException{
+
+        // enable the stop button
         stopButton.setDisable(false);
+
+        // create a thread to compile the curFile
         compileProcess = new CompileProcess(curFile, console, stopButton, false);
         Thread compileThread = new Thread(compileProcess);
         compileThread.start();
     }
 
     /**
-     * Will compile the code and print error codes in the terminal if necessary.
-     * Otherwise, it will print compilation success.
-     * If code compiles successfully, the code will be run.
-     *
-     * @param curFile Reference to the currently selected file.
+     * compile and run the curFile in a new thread
+     * @param curFile
+     * @param console
+     * @param stopButton
+     * @throws InterruptedException
      */
     public void handleCompileRun(File curFile, IOConsole console, Button stopButton) throws  InterruptedException{
+
+        // enable the stop button
         stopButton.setDisable(false);
+
+        //create a thread to compile and run the current file
         compileProcess = new CompileProcess(curFile, console, stopButton, true);
         Thread runThread = new Thread(compileProcess);
         runThread.start();
     }
 
     /**
-     * Will stop any code running through the Compile and Run button.
+     * Will stop any compilation or running processes.
      *
      */
     public void handleStop() {

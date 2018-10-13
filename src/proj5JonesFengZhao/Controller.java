@@ -202,8 +202,8 @@ public class Controller {
 
     /**
      * Handles the Compile button action.
-     * Will compile the code and print error codes in the terminal if necessary.
-     * Otherwise, it will print compilation success.
+     * If there is a saved file in the current tab, compile the file.
+     * If there is not a saved file in the current tab, nothing happens.
      */
     @FXML
     private void handleCompile() throws  InterruptedException{
@@ -215,9 +215,9 @@ public class Controller {
 
     /**
      * Handles the Compile and Run button action.
-     * Will compile the code and print error codes in the terminal if necessary.
-     * Otherwise, it will print compilation success.
+     * If there is a saved file in the current tab, compile the file.
      * If code compiles successfully, the code will be run.
+     * If there is not a saved file in the current tab, nothing happens.
      */
     @FXML
     private void handleCompileRun() throws  InterruptedException{
@@ -227,7 +227,7 @@ public class Controller {
 
     /**
      * Handles the Stop button action.
-     * Will stop any code running through Compile and Run button.
+     * Will stop any code compilation or running process.
      */
     @FXML
     private void handleStop() {
