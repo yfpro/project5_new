@@ -9,27 +9,32 @@ Date: 10/12/18
     -fx-fill: purple;
     -fx-font-weight: bold;
 }
+
 .semicolon {
     -fx-font-weight: bold;
 }
+
 .paren {
     -fx-fill: teal;
     -fx-font-weight: bold;
 }
+
 .bracket {
     -fx-fill: teal;
     -fx-font-weight: bold;
 }
+
 .brace {
     -fx-fill: teal;
     -fx-font-weight: bold;
 }
+
 .string {
     -fx-fill: blue;
 }
 
 .comment {
-	-fx-fill: cadetblue;
+    -fx-fill: cadetblue;
 }
 
 .intcon {

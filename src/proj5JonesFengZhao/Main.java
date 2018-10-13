@@ -13,7 +13,6 @@ import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 
-
 /**
  * Creates a JavaFX application that contains an area for
  * 1) a TabPane,

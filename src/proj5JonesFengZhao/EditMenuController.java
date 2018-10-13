@@ -7,7 +7,6 @@ Date: 10/12/18
 
 package proj5JonesFengZhao;
 
-import javafx.scene.control.MenuItem;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import org.fxmisc.flowless.VirtualizedScrollPane;
@@ -27,7 +26,6 @@ import org.fxmisc.richtext.CodeArea;
  */
 public class EditMenuController {
     private TabPane tabPane;
-
 
     /**
      * Handles the Undo button action.
@@ -97,13 +95,11 @@ public class EditMenuController {
         return (CodeArea) vsp.getContent();
     }
 
-
     /**
      * Simple helper method that gets the FXML objects from the
      * main controller for use by other methods in the class.
      */
     public void receiveFXMLElements(Object[] list) {
         tabPane = (TabPane) list[0];
-
     }
 }

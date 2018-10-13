@@ -19,7 +19,6 @@ import java.util.Collections;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-
 /**
  * This class handles the creation of CodeAreas, as well as keyword
  * highlighting and syntax recognition.

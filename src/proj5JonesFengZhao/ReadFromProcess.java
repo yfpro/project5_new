@@ -1,3 +1,10 @@
+/*
+File: ReadFromProcess.java
+CS361 Project 5
+Names: Yi Feng, Matt Jones, Danqing Zhao
+Date: 10/12/18
+ */
+
 package proj5JonesFengZhao;
 
 import javafx.application.Platform;
@@ -10,8 +17,9 @@ public class ReadFromProcess implements Runnable {
 
     /**
      * Constructor
-     * @param input
-     * @param console
+     *
+     * @param input   Information to be written to the console
+     * @param console Reference to IOConsole that will be written to
      */
     ReadFromProcess(InputStream input, IOConsole console) {
         this.input = input;

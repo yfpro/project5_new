@@ -15,7 +15,6 @@ import javafx.stage.Stage;
 import org.fxmisc.flowless.VirtualizedScrollPane;
 
 import java.io.File;
-//TODO: erorr with closing tab and then compiling
 
 /**
  * Controller is the main controller for the application.
@@ -208,9 +207,9 @@ public class Controller {
     @FXML
     private void handleCompile() {
         File curFile = getCurrentFile();
-        if (curFile != null) toolbarController.handleCompile(curFile, ioConsole, stopButton);
+        if (curFile != null)
+            toolbarController.handleCompile(curFile, ioConsole, stopButton);
     }
-
 
 
     /**
@@ -222,7 +221,8 @@ public class Controller {
     @FXML
     private void handleCompileRun() {
         File curFile = getCurrentFile();
-        if (curFile != null) toolbarController.handleCompileRun(curFile, ioConsole, stopButton);
+        if (curFile != null)
+            toolbarController.handleCompileRun(curFile, ioConsole, stopButton);
     }
 
     /**
@@ -278,7 +278,6 @@ public class Controller {
     }
 
 
-
     /**
      * helper function for handleCompile
      * if there is unsaved changes in the file, ask the user whether to save before
@@ -302,7 +301,6 @@ public class Controller {
      * @return list containing necessary elements
      */
     private Object[] passFXMLElements() {
-
         return new Object[]{
                 this.tabPane,
                 this.primaryStage

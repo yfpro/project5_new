@@ -9,6 +9,7 @@ package proj5JonesFengZhao;
 
 import javafx.scene.input.KeyEvent;
 import org.fxmisc.richtext.StyleClassedTextArea;
+
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
@@ -28,7 +29,6 @@ public class IOConsole extends StyleClassedTextArea {
     private String userInput;
     private OutputStream outputStream;
 
-
     /**
      * Constructor
      * When a key is typed, call handleKeyPress method
@@ -39,8 +39,10 @@ public class IOConsole extends StyleClassedTextArea {
     }
 
     /**
-     * set the console's output stream to the input OutpusStream
-     * @param outputStream
+     * Set the console's output stream to the input OutpusStream
+     *
+     * @param outputStream Reference to the OutputStream that will use to set the
+     *                     parameter outputStream.
      */
     public void setOutputStream(OutputStream outputStream) {
         this.outputStream = outputStream;
@@ -57,8 +59,8 @@ public class IOConsole extends StyleClassedTextArea {
     }
 
     /**
-     * write the user input the
-     * if failed, print out the exception message in terminal
+     * Write the user input to the outputStream field..
+     * If failed, print out the exception message in terminal.
      */
     public void writeTo() {
         try {
@@ -70,8 +72,9 @@ public class IOConsole extends StyleClassedTextArea {
     }
 
     /**
-     * get the user's input to the userInput field
-     * if the user presses ENTER, write the input to the process
+     * Get the user's input to the userInput field.
+     * If the user presses ENTER, write the input to the process by calling writeTo.
+     *
      * @param keyEvent the key(s) that user typed
      */
     private void handleKeyPress(KeyEvent keyEvent) {

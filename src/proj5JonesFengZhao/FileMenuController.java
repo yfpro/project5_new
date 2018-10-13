@@ -115,7 +115,6 @@ public class FileMenuController {
 
             // Case: current text area is in use and shouldn't be overwritten
             // Behavior: generate new tab and open the file there
-
             Tab newTab = createNewTab(openFile.getName(), new VirtualizedScrollPane<>(
                     new JavaCodeArea()));
             this.getCurrentCodeArea().replaceText(contentOpenedFile);
@@ -260,7 +259,6 @@ public class FileMenuController {
             UserErrorDialog userErrorDialog = new UserErrorDialog(
                     UserErrorDialog.ErrorType.READING_ERROR, file.getName());
             userErrorDialog.showAndWait();
-
         }
         return content;
     }
@@ -437,7 +435,6 @@ public class FileMenuController {
     public File getCurrentFile() {
         Tab currentTab = this.tabPane.getSelectionModel().getSelectedItem();
 
-
         // if the current tab has unsaved changes
         // pop up Alert window to ask whether the user want to save before compile
         if (this.tabHasUnsavedChanges(currentTab)) {
@@ -458,18 +455,17 @@ public class FileMenuController {
                 if (handleSaveMenuItemAction()) return this.tabFileMap.get(currentTab);
                 else return null;
 
-            // if the user chooses no
+                // if the user chooses no
             } else if (result.get() == ButtonType.NO) {
                 if (this.tabFileMap.get(currentTab) != null)
                     return this.tabFileMap.get(currentTab);
                 else return null;
 
-            //if the user chooses cancel
+                //if the user chooses cancel
             } else return null;
 
-         // if the current tab doesn't have unsaved changes, return the file
-         // of the current tab
-
+            // if the current tab doesn't have unsaved changes, return the file
+            // of the current tab
         } else {
             return this.tabFileMap.get(currentTab);
         }
