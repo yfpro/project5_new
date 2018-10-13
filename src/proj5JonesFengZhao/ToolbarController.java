@@ -28,7 +28,7 @@ import java.sql.SQLOutput;
  * @since 10-3-2018
  */
 public class ToolbarController {
-    private CompileProcess compileProcess;
+    private WorkingProcess workingProcess;
     private Thread runThread;
     private Process process;
 
@@ -40,8 +40,8 @@ public class ToolbarController {
      */
     public void handleCompile(File curFile, IOConsole console, Button stopButton) throws  InterruptedException{
         stopButton.setDisable(false);
-        compileProcess = new CompileProcess(curFile, console, stopButton, false);
-        Thread compileThread = new Thread(compileProcess);
+        workingProcess = new WorkingProcess(curFile, console, stopButton, false);
+        Thread compileThread = new Thread(workingProcess);
         compileThread.start();
     }
 
@@ -54,8 +54,8 @@ public class ToolbarController {
      */
     public void handleCompileRun(File curFile, IOConsole console, Button stopButton) throws  InterruptedException{
         stopButton.setDisable(false);
-        compileProcess = new CompileProcess(curFile, console, stopButton, true);
-        Thread runThread = new Thread(compileProcess);
+        workingProcess = new WorkingProcess(curFile, console, stopButton, true);
+        Thread runThread = new Thread(workingProcess);
         runThread.start();
     }
 
@@ -64,7 +64,7 @@ public class ToolbarController {
      *
      */
     public void handleStop() {
-        this.process = this.compileProcess.getProcess();
+        this.process = this.workingProcess.getProcess();
         if(this.process!=null) {
             try {
                 process.getInputStream().close();
