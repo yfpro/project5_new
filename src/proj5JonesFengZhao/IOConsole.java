@@ -18,7 +18,7 @@ import java.io.IOException;
  * This IOConsole class extends the StyleCalssedTextArea.
  * It contains a String userInput to store the user's input,
  * and an outputStream for writing the user input to a process.
- * It can read from a process's output and write to a process's input.
+ * It can read from an inputstream and write to an outputstream.
  *
  * @author Yi Feng
  * @author Matt Jones

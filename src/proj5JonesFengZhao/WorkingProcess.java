@@ -86,7 +86,7 @@ public class WorkingProcess implements Runnable {
 
     /**
      * Builds a process using a ProcessBuilder. Starts the process and passes the
-     * InputStream and OutputStream to an IOConsole given by the console parameter.
+     * ErrorStream, InputStream and OutputStream to an IOConsole given by the console parameter.
      *
      * @param console Reference to an IOConsole that will be used for user input to the
      *                process. All output from the process will also be directed to the
