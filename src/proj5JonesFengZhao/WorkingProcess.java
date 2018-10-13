@@ -17,7 +17,7 @@ import java.io.OutputStream;
 /**
  * This class implements the Runnable class and is used to build a process that can be
  * given to a Thread and run inside that Thread.
- * Specifically this class will build and run a compile process.
+ * Specifically, this class can build a compile process and/or a run process.
  *
  * @author Matt Jones
  * @author Yi Feng
@@ -35,10 +35,11 @@ public class WorkingProcess implements Runnable {
 
     /**
      * Constructor
-     * @param curFile
-     * @param console
-     * @param stopButton
-     * @param ifRun
+     * @param curFile the file to be compiled (and run)
+     * @param console the console
+     * @param stopButton the stopButton
+     * @param ifRun if ifRun is false, it only compiles the file
+     *              if ifRun is true, it both compiles and runs the file
      */
     WorkingProcess(File curFile, IOConsole console, Button stopButton, boolean ifRun) {
         this.curFile = curFile;
@@ -48,14 +49,20 @@ public class WorkingProcess implements Runnable {
     }
 
     /**
-     * This will find the path of the selected file at the moment the compile button
-     * was pressed. The buildProcess function is then called to build a compile process
-     * using the javac.
+     * This method will find the path of the selected file at the moment the compile button
+     * was pressed and construct the commands for compiling and running the file.
+     * Then it will call buildProcess to build the compilation process.
+     * If ifRun is true and compilation was sucessful, call buildProcess to run the file.
      */
     public void run() {
+
         String path = curFile.getAbsolutePath();
         String[] command = {"javac", path};
+
+        //compile the file
         this.process = buildProcess(console, command);
+
+
         if(ifRun){
             if (this.process!=null) {
                 path = curFile.getAbsoluteFile().getParent();
@@ -65,6 +72,7 @@ public class WorkingProcess implements Runnable {
                 this.process = buildProcess(console, runCommand);
             }
         }
+        // disable the stopButton when process finishes
         stopButton.setDisable(true);
     }
 
@@ -84,30 +92,30 @@ public class WorkingProcess implements Runnable {
      *                process. All output from the process will also be directed to the
      *                console
      * @param command Reference to a command that will be passed to the ProcessBuilder
-     * @return Will return a boolean contingent on the success of the process. For
-     * example, if the compile process fails, will return false.
+     * @return returns the process if there was no exception, return null if there is
+     * exception and print out the exception in terminal
      */
     public Process buildProcess(IOConsole console, String[] command) {
         try {
             ProcessBuilder pb = new ProcessBuilder(command);
-            pb.redirectErrorStream(true);
-            Process process = pb.start();
-            InputStream i = process.getErrorStream();
-            console.readFrom(i);
+            this.process = pb.start();
+
+            // let the console read from the process's error stream
+            InputStream processErrorStream = this.process.getErrorStream();
+            console.readFrom(processErrorStream);
 
             // let the console read from the process's output stream
-            InputStream processOutput = process.getInputStream();
+            InputStream processOutput = this.process.getInputStream();
             console.readFrom(processOutput);
 
             // set the process's input stream to the console's output stream
-            OutputStream processInput = process.getOutputStream();
+            OutputStream processInput = this.process.getOutputStream();
             console.setOutputStream(processInput);
-            this.process = process;
 
             //wait for the process to complete
-            process.waitFor();
+            this.process.waitFor();
 
-            return(process);
+            return(this.process);
         } catch (Exception e) {
             e.printStackTrace();
             return(null);

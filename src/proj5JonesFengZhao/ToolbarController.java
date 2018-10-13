@@ -28,52 +28,62 @@ import java.sql.SQLOutput;
  * @since 10-3-2018
  */
 public class ToolbarController {
-    private WorkingProcess workingProcess;
-    private Thread runThread;
+    private CompileProcess compileProcess;
     private Process process;
 
     /**
-     * Will compile the code and print error codes in the terminal if necessary.
-     * Otherwise, it will print compilation success.
-     *
-     * @param curFile Reference to the currently selected file.
+     * compile the current file in a new thread
+     * @param curFile the current file
+     * @param console
+     * @param stopButton
+     * @throws InterruptedException
      */
     public void handleCompile(File curFile, IOConsole console, Button stopButton) throws  InterruptedException{
+
+        // enable the stop button
         stopButton.setDisable(false);
-        workingProcess = new WorkingProcess(curFile, console, stopButton, false);
-        Thread compileThread = new Thread(workingProcess);
+
+        // create a thread to compile the curFile
+        compileProcess = new CompileProcess(curFile, console, stopButton, false);
+        Thread compileThread = new Thread(compileProcess);
         compileThread.start();
     }
 
     /**
-     * Will compile the code and print error codes in the terminal if necessary.
-     * Otherwise, it will print compilation success.
-     * If code compiles successfully, the code will be run.
-     *
-     * @param curFile Reference to the currently selected file.
+     * compile and run the curFile in a new thread
+     * @param curFile
+     * @param console
+     * @param stopButton
+     * @throws InterruptedException
      */
     public void handleCompileRun(File curFile, IOConsole console, Button stopButton) throws  InterruptedException{
+
+        // enable the stop button
         stopButton.setDisable(false);
-        workingProcess = new WorkingProcess(curFile, console, stopButton, true);
-        Thread runThread = new Thread(workingProcess);
+
+        //create a thread to compile and run the current file
+        compileProcess = new CompileProcess(curFile, console, stopButton, true);
+        Thread runThread = new Thread(compileProcess);
         runThread.start();
     }
 
     /**
-     * Will stop any code running through the Compile and Run button.
+     * Will stop any compilation or running processes.
      *
      */
     public void handleStop() {
-        this.process = this.workingProcess.getProcess();
-        if(this.process!=null) {
-            try {
-                process.getInputStream().close();
-                process.getOutputStream().close();
-                process.getErrorStream().close();
-                this.process.destroy();
+        if (this.compileProcess!=null) {
+            this.process = this.compileProcess.getProcess();
+            if (this.process != null) {
+                try {
+                    process.getInputStream().close();
+                    process.getOutputStream().close();
+                    process.getErrorStream().close();
+                    this.process.destroy();
 
-            } catch (IOException e) {
-                e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }

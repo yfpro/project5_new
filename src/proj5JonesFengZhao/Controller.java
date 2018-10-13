@@ -41,19 +41,6 @@ public class Controller {
     private MenuItem saveAsMenuItem;
 
     @FXML
-    private MenuItem undoMenuItem;
-    @FXML
-    private MenuItem redoMenuItem;
-    @FXML
-    private MenuItem cutMenuItem;
-    @FXML
-    private MenuItem copyMenuItem;
-    @FXML
-    private MenuItem pasteMenuItem;
-    @FXML
-    private MenuItem selectAllMenuItem;
-
-    @FXML
     private Menu editMenu;
 
     @FXML
@@ -215,8 +202,8 @@ public class Controller {
 
     /**
      * Handles the Compile button action.
-     * Will compile the code and print error codes in the terminal if necessary.
-     * Otherwise, it will print compilation success.
+     * If there is a saved file in the current tab, compile the file.
+     * If there is not a saved file in the current tab, nothing happens.
      */
     @FXML
     private void handleCompile() throws  InterruptedException{
@@ -228,9 +215,9 @@ public class Controller {
 
     /**
      * Handles the Compile and Run button action.
-     * Will compile the code and print error codes in the terminal if necessary.
-     * Otherwise, it will print compilation success.
+     * If there is a saved file in the current tab, compile the file.
      * If code compiles successfully, the code will be run.
+     * If there is not a saved file in the current tab, nothing happens.
      */
     @FXML
     private void handleCompileRun() throws  InterruptedException{
@@ -240,7 +227,7 @@ public class Controller {
 
     /**
      * Handles the Stop button action.
-     * Will stop any code running through Compile and Run button.
+     * Will stop any code compilation or running process.
      */
     @FXML
     private void handleStop() {
@@ -265,6 +252,8 @@ public class Controller {
     public void initialize() {
         fileMenuController.receiveFXMLElements(this.passFXMLElements());
         editMenuController.receiveFXMLElements(this.passFXMLElements());
+
+        //Create an initial tab
         this.handleNewMenuItemAction();
 
         SimpleListProperty<Tab> listProperty =
@@ -316,15 +305,6 @@ public class Controller {
 
         return new Object[]{
                 this.tabPane,
-                this.closeMenuItem,
-                this.saveAsMenuItem,
-                this.saveMenuItem,
-                this.undoMenuItem,
-                this.redoMenuItem,
-                this.cutMenuItem,
-                this.copyMenuItem,
-                this.pasteMenuItem,
-                this.selectAllMenuItem,
                 this.primaryStage
         };
     }

@@ -28,13 +28,6 @@ import org.fxmisc.richtext.CodeArea;
 public class EditMenuController {
     private TabPane tabPane;
 
-    private MenuItem undoMenuItem;
-    private MenuItem redoMenuItem;
-    private MenuItem cutMenuItem;
-    private MenuItem copyMenuItem;
-    private MenuItem pasteMenuItem;
-    private
-    MenuItem selectAllMenuItem;
 
     /**
      * Handles the Undo button action.
@@ -104,14 +97,6 @@ public class EditMenuController {
         return (CodeArea) vsp.getContent();
     }
 
-    /**
-     * Simple helper method
-     *
-     * @return true if there aren't currently any tabs open, else false
-     */
-    private boolean isTabless() {
-        return this.tabPane.getTabs().isEmpty();
-    }
 
     /**
      * Simple helper method that gets the FXML objects from the
@@ -119,11 +104,6 @@ public class EditMenuController {
      */
     public void receiveFXMLElements(Object[] list) {
         tabPane = (TabPane) list[0];
-        undoMenuItem = (MenuItem) list[4];
-        redoMenuItem = (MenuItem) list[5];
-        cutMenuItem = (MenuItem) list[6];
-        copyMenuItem = (MenuItem) list[7];
-        pasteMenuItem = (MenuItem) list[8];
-        selectAllMenuItem = (MenuItem) list[9];
+
     }
 }

@@ -7,11 +7,8 @@ Date: 10/12/18
 
 package proj5JonesFengZhao;
 
-import javafx.application.Platform;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import org.fxmisc.richtext.StyleClassedTextArea;
-
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
@@ -19,18 +16,25 @@ import java.io.IOException;
 
 /**
  * This IOConsole class extends the StyleCalssedTextArea.
- * It 
- * 
+ * It contains a String userInput to store the user's input,
+ * and an outputStream for writing the user input to a process.
+ * It can read from a process's output and write to a process's input.
+ *
+ * @author Yi Feng
+ * @author Matt Jones
+ * @author Danqing Zhao
  */
 public class IOConsole extends StyleClassedTextArea {
-    private OutputStream outputStream;
     private String userInput;
+    private OutputStream outputStream;
+
 
     /**
      * Constructor
+     * When a key is typed, call handleKeyPress method
      */
     IOConsole() {
-        userInput = "";
+        this.userInput = "";
         this.setOnKeyTyped(event -> handleKeyPress(event));
     }
 
@@ -52,23 +56,30 @@ public class IOConsole extends StyleClassedTextArea {
         readFrom.start();
     }
 
-    //TODO: WHAT DOES THIS FUNCTION DO?
+    /**
+     * write the user input the
+     * if failed, print out the exception message in terminal
+     */
     public void writeTo() {
         try {
-            OutputStreamWriter writer = new OutputStreamWriter(outputStream);
-            writer.write(userInput);
+            OutputStreamWriter writer = new OutputStreamWriter(this.outputStream);
+            writer.write(this.userInput);
         } catch (IOException e1) {
             e1.printStackTrace();
         }
     }
-    
-    //TODO: Are we using handleKeyTyped or Pressed?
+
+    /**
+     * get the user's input to the userInput field
+     * if the user presses ENTER, write the input to the process
+     * @param keyEvent the key(s) that user typed
+     */
     private void handleKeyPress(KeyEvent keyEvent) {
-        userInput += keyEvent.getCharacter();
+        this.userInput += keyEvent.getCharacter();
         if (keyEvent.getCharacter().equals("\r")) {
-            userInput += "\n";
+            this.userInput += "\n";
             this.writeTo();
-            userInput = "";
+            this.userInput = "";
         }
     }
 }
