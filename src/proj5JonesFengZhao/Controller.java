@@ -265,6 +265,8 @@ public class Controller {
     public void initialize() {
         fileMenuController.receiveFXMLElements(this.passFXMLElements());
         editMenuController.receiveFXMLElements(this.passFXMLElements());
+
+        //Create an initial tab
         this.handleNewMenuItemAction();
 
         SimpleListProperty<Tab> listProperty =
@@ -316,15 +318,6 @@ public class Controller {
 
         return new Object[]{
                 this.tabPane,
-                this.closeMenuItem,
-                this.saveAsMenuItem,
-                this.saveMenuItem,
-                this.undoMenuItem,
-                this.redoMenuItem,
-                this.cutMenuItem,
-                this.copyMenuItem,
-                this.pasteMenuItem,
-                this.selectAllMenuItem,
                 this.primaryStage
         };
     }

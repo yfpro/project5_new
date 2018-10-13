@@ -40,9 +40,6 @@ import java.util.*;
  */
 public class FileMenuController {
     private TabPane tabPane;
-    private MenuItem closeMenuItem;
-    private MenuItem saveMenuItem;
-    private MenuItem saveAsMenuItem;
     private Stage primaryStage;
 
     /**
@@ -86,7 +83,7 @@ public class FileMenuController {
      */
     public void handleNewMenuItemAction() {
         Tab newTab = createNewTab("untitled" + (untitledCounter++) + ".txt",
-                new VirtualizedScrollPane<>(new ColoredCodeArea()));
+                new VirtualizedScrollPane<>(new JavaCodeArea()));
         this.tabFileMap.put(newTab, null);
     }
 
@@ -120,7 +117,7 @@ public class FileMenuController {
             // Behavior: generate new tab and open the file there
 
             Tab newTab = createNewTab(openFile.getName(), new VirtualizedScrollPane<>(
-                    new ColoredCodeArea()));
+                    new JavaCodeArea()));
             this.getCurrentCodeArea().replaceText(contentOpenedFile);
             this.tabFileMap.put(newTab, openFile);
         }
@@ -422,10 +419,7 @@ public class FileMenuController {
      */
     public void receiveFXMLElements(Object[] list) {
         tabPane = (TabPane) list[0];
-        closeMenuItem = (MenuItem) list[1];
-        saveMenuItem = (MenuItem) list[2];
-        saveAsMenuItem = (MenuItem) list[3];
-        primaryStage = (Stage) list[10];
+        primaryStage = (Stage) list[1];
     }
 
     /**
@@ -443,6 +437,9 @@ public class FileMenuController {
     public File getCurrentFile() {
         Tab currentTab = this.tabPane.getSelectionModel().getSelectedItem();
 
+
+        // if the current tab has unsaved changes
+        // pop up Alert window to ask whether the user want to save before compile
         if (this.tabHasUnsavedChanges(currentTab)) {
             Alert alert = new Alert(
                     Alert.AlertType.CONFIRMATION,
@@ -456,15 +453,23 @@ public class FileMenuController {
             alert.setTitle("Alert");
             Optional<ButtonType> result = alert.showAndWait();
 
-            // If the user chooses yes,
+            // if the user chooses yes,
             if (result.get() == ButtonType.YES) {
                 if (handleSaveMenuItemAction()) return this.tabFileMap.get(currentTab);
                 else return null;
+
+            // if the user chooses no
             } else if (result.get() == ButtonType.NO) {
                 if (this.tabFileMap.get(currentTab) != null)
                     return this.tabFileMap.get(currentTab);
                 else return null;
+
+            //if the user chooses cancel
             } else return null;
+
+         // if the current tab doesn't have unsaved changes, return the file
+         // of the current tab
+
         } else {
             return this.tabFileMap.get(currentTab);
         }

@@ -31,7 +31,7 @@ import java.util.regex.Pattern;
  * @author Iris Lian
  * @author Matt Jones
  */
-public class ColoredCodeArea extends CodeArea {
+public class JavaCodeArea extends CodeArea {
     /**
      * Keywords which need to be highlighted
      */
@@ -74,9 +74,9 @@ public class ColoredCodeArea extends CodeArea {
     );
 
     /**
-     * Helper function which creates and sets up a code area.
+     * Constructor for the coloredCodeArea
      */
-    ColoredCodeArea() {
+    JavaCodeArea() {
         this.setParagraphGraphicFactory(LineNumberFactory.get(this));
 
         //  recompute the syntax highlighting 500 ms after user stops editing area

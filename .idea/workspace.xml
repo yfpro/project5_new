@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="edit some comments">
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="debugged exit when tabless">
+      <change afterPath="$PROJECT_DIR$/src/proj5JonesFengZhao/JavaCodeArea.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/proj5JonesFengZhao/CompileProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/proj5JonesFengZhao/CompileProcess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/proj5JonesFengZhao/ToolbarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/proj5JonesFengZhao/ToolbarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/proj5JonesFengZhao/ColoredCodeArea.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/proj5JonesFengZhao/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/proj5JonesFengZhao/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/proj5JonesFengZhao/EditMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/proj5JonesFengZhao/EditMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/proj5JonesFengZhao/FileMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/proj5JonesFengZhao/FileMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/proj5JonesFengZhao/IOConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/proj5JonesFengZhao/IOConsole.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -70,29 +74,29 @@
         <counts>
           <entry key="class" value="3" />
           <entry key="css" value="3" />
-          <entry key="fxml" value="7" />
-          <entry key="java" value="26" />
+          <entry key="fxml" value="8" />
+          <entry key="java" value="30" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="3" />
           <entry key="CSS" value="3" />
-          <entry key="JAVA" value="26" />
-          <entry key="XML" value="7" />
+          <entry key="JAVA" value="30" />
+          <entry key="XML" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="fxml" value="56" />
-          <entry key="java" value="5392" />
-          <entry key="txt" value="299" />
+          <entry key="java" value="6214" />
+          <entry key="txt" value="330" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="5392" />
-          <entry key="PLAIN_TEXT" value="299" />
+          <entry key="JAVA" value="6214" />
+          <entry key="PLAIN_TEXT" value="330" />
           <entry key="XML" value="56" />
         </counts>
       </usages-collector>
@@ -139,11 +143,21 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/ColoredCodeArea.java">
+        <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/JavaCodeArea.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1335">
-              <caret line="94" column="23" selection-start-line="94" selection-start-column="23" selection-end-line="94" selection-end-column="23" />
+            <state relative-caret-position="270">
+              <caret line="33" column="13" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="50" selection-start-line="50" selection-end-line="50" />
               <folding>
+                <element signature="e#0#2665#0" expanded="true" />
                 <element signature="imports" expanded="true" />
               </folding>
             </state>
@@ -151,24 +165,38 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/CompileProcess.java">
+        <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/EditMenuController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="93" selection-start-line="93" selection-end-line="93" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2004#2005#0" expanded="true" />
-                <element signature="e#2040#2041#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="300">
+              <caret line="29" selection-start-line="29" selection-end-line="29" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/ToolbarController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="79" column="9" selection-start-line="79" selection-start-column="9" selection-end-line="79" selection-end-column="9" />
+            <state relative-caret-position="245">
+              <caret line="62" column="7" selection-start-line="62" selection-start-column="7" selection-end-line="62" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/Main.fxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1187">
+              <caret line="126" column="16" selection-start-line="126" selection-start-column="16" selection-end-line="126" selection-end-column="16" />
+            </state>
+          </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/ReadFromProcess.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="11" column="18" lean-forward="true" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -176,8 +204,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/IOConsole.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
-              <caret line="18" column="40" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
+            <state relative-caret-position="64">
+              <caret line="34" column="4" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -188,8 +216,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="267" column="19" selection-start-line="267" selection-start-column="13" selection-end-line="267" selection-end-column="19" />
+            <state relative-caret-position="15">
+              <caret line="249" selection-start-line="249" selection-end-line="249" />
               <folding>
                 <element signature="e#1944#1945#0" expanded="true" />
                 <element signature="e#2006#2007#0" expanded="true" />
@@ -224,11 +252,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/FileMenuController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="431" column="30" selection-start-line="431" selection-start-column="27" selection-end-line="431" selection-end-column="30" />
+            <state relative-caret-position="243">
+              <caret line="260" column="32" selection-start-line="260" selection-start-column="32" selection-end-line="260" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -245,10 +273,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>getmap</find>
-      <find>handlesav</find>
-      <find>stylec</find>
-      <find>codearea</find>
       <find>handlecompi</find>
       <find>handleSaveMenuItemAction</find>
       <find>close</find>
@@ -267,13 +291,18 @@
       <find>bind</find>
       <find>CONSUME</find>
       <find>consume</find>
-      <find>exit</find>
       <find>handleexi</find>
       <find>runthread</find>
       <find>initeial</find>
-      <find>stop</find>
-      <find>handle</find>
       <find>han</find>
+      <find>handle</find>
+      <find>exit</find>
+      <find>primary</find>
+      <find>pass</find>
+      <find>istabless</find>
+      <find>receiver</find>
+      <find>stop</find>
+      <find>VirtualizedScrollPane&lt;&gt;</find>
     </findStrings>
   </component>
   <component name="FindManager">
@@ -290,14 +319,15 @@
       <list>
         <option value="$PROJECT_DIR$/src/proj5JonesFengZhao/fileMenu.fxml" />
         <option value="$PROJECT_DIR$/src/proj5JonesFengZhao/CompileRunProcess.java" />
-        <option value="$PROJECT_DIR$/src/proj5JonesFengZhao/ColoredCodeArea.java" />
         <option value="$PROJECT_DIR$/src/proj5JonesFengZhao/Main.fxml" />
         <option value="$PROJECT_DIR$/src/proj5JonesFengZhao/ReadFromProcess.java" />
-        <option value="$PROJECT_DIR$/src/proj5JonesFengZhao/FileMenuController.java" />
-        <option value="$PROJECT_DIR$/src/proj5JonesFengZhao/Controller.java" />
-        <option value="$PROJECT_DIR$/src/proj5JonesFengZhao/IOConsole.java" />
         <option value="$PROJECT_DIR$/src/proj5JonesFengZhao/CompileProcess.java" />
         <option value="$PROJECT_DIR$/src/proj5JonesFengZhao/ToolbarController.java" />
+        <option value="$PROJECT_DIR$/src/proj5JonesFengZhao/EditMenuController.java" />
+        <option value="$PROJECT_DIR$/src/proj5JonesFengZhao/Controller.java" />
+        <option value="$PROJECT_DIR$/src/proj5JonesFengZhao/IOConsole.java" />
+        <option value="$PROJECT_DIR$/src/proj5JonesFengZhao/ColoredCodeArea.java" />
+        <option value="$PROJECT_DIR$/src/proj5JonesFengZhao/FileMenuController.java" />
       </list>
     </option>
   </component>
@@ -357,7 +387,7 @@
     <property name="OverrideImplement.combined" value="false" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Volumes/Transcend/Github/project5_new/src/proj5JonesFengZhao/ToolbarController.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539381580611" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539397311068" />
     <property name="dynamic.classpath" value="false" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -624,7 +654,14 @@
       <option name="project" value="LOCAL" />
       <updated>1539394804808</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="debugged exit when tabless">
+      <created>1539395140707</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1539395140707</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -716,14 +753,15 @@
     <MESSAGE value="- Refactored Console's appearance&#10;- Added some comments&#10;- Deleted disableEditMenu and disableFileMenu in Controller, put these codes in initialize insteard" />
     <MESSAGE value="Some changes" />
     <MESSAGE value="edit some comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="edit some comments" />
+    <MESSAGE value="debugged exit when tabless" />
+    <option name="LAST_COMMIT_MESSAGE" value="debugged exit when tabless" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/out/production/project5_new/proj5JonesFengZhao/FileMenuController.class</url>
-          <line>83</line>
+          <line>79</line>
           <properties />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
@@ -802,63 +840,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/fileMenu.fxml" />
-    <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/EditMenuController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="102" column="78" selection-start-line="102" selection-start-column="78" selection-end-line="102" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="50" selection-start-line="50" selection-end-line="50" />
-          <folding>
-            <element signature="e#0#2665#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/JavaKeywords.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/CompileRunProcess.java" />
-    <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/ReadFromProcess.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="11" column="18" lean-forward="true" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/Main.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="126" column="16" selection-start-line="126" selection-start-column="16" selection-end-line="126" selection-end-column="16" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/ColoredCodeArea.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1335">
-          <caret line="94" column="23" selection-start-line="94" selection-start-column="23" selection-end-line="94" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/IOConsole.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="18" column="40" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/CompileProcess.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="328">
@@ -871,10 +856,69 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/ToolbarController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="62" column="7" selection-start-line="62" selection-start-column="7" selection-end-line="62" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/EditMenuController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/IOConsole.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="34" column="4" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/ReadFromProcess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="11" column="18" lean-forward="true" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="50" selection-start-line="50" selection-end-line="50" />
+          <folding>
+            <element signature="e#0#2665#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/ColoredCodeArea.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="33" column="13" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/JavaCodeArea.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="33" column="13" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="267" column="19" selection-start-line="267" selection-start-column="13" selection-end-line="267" selection-end-column="19" />
+        <state relative-caret-position="15">
+          <caret line="249" selection-start-line="249" selection-end-line="249" />
           <folding>
             <element signature="e#1944#1945#0" expanded="true" />
             <element signature="e#2006#2007#0" expanded="true" />
@@ -908,17 +952,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/FileMenuController.java">
+    <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/Main.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="431" column="30" selection-start-line="431" selection-start-column="27" selection-end-line="431" selection-end-column="30" />
+        <state relative-caret-position="1187">
+          <caret line="126" column="16" selection-start-line="126" selection-start-column="16" selection-end-line="126" selection-end-column="16" />
         </state>
       </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/ToolbarController.java">
+    <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/FileMenuController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="79" column="9" selection-start-line="79" selection-start-column="9" selection-end-line="79" selection-end-column="9" />
+        <state relative-caret-position="243">
+          <caret line="260" column="32" selection-start-line="260" selection-start-column="32" selection-end-line="260" selection-end-column="32" />
         </state>
       </provider>
     </entry>

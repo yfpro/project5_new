@@ -18,6 +18,7 @@ import java.io.IOException;
  * This IOConsole class extends the StyleCalssedTextArea.
  * It contains a String userInput to store the user's input,
  * and an outputStream for writing the user input to a process.
+ * It can
  *
  * @author Yi Feng
  * @author Matt Jones
@@ -32,7 +33,7 @@ public class IOConsole extends StyleClassedTextArea {
      * Constructor
      */
     IOConsole() {
-        userInput = "";
+        this.userInput = "";
         this.setOnKeyTyped(event -> handleKeyPress(event));
     }
 
@@ -54,23 +55,30 @@ public class IOConsole extends StyleClassedTextArea {
         readFrom.start();
     }
 
-    //TODO: Not using buffer writer?
+    /**
+     * write the user input the
+     * if failed, print out the error message in terminal
+     */
     public void writeTo() {
         try {
-            OutputStreamWriter writer = new OutputStreamWriter(outputStream);
-            writer.write(userInput);
+            OutputStreamWriter writer = new OutputStreamWriter(this.outputStream);
+            writer.write(this.userInput);
         } catch (IOException e1) {
             e1.printStackTrace();
         }
     }
-    
-    //TODO: So we are not checking ENTER?
+
+    /**
+     * get the user's input to the userInput field
+     * if the user presses ENTER, write the input to the process
+     * @param keyEvent the key(s) that user typed
+     */
     private void handleKeyPress(KeyEvent keyEvent) {
-        userInput += keyEvent.getCharacter();
+        this.userInput += keyEvent.getCharacter();
         if (keyEvent.getCharacter().equals("\r")) {
-            userInput += "\n";
+            this.userInput += "\n";
             this.writeTo();
-            userInput = "";
+            this.userInput = "";
         }
     }
 }
