@@ -41,19 +41,6 @@ public class Controller {
     private MenuItem saveAsMenuItem;
 
     @FXML
-    private MenuItem undoMenuItem;
-    @FXML
-    private MenuItem redoMenuItem;
-    @FXML
-    private MenuItem cutMenuItem;
-    @FXML
-    private MenuItem copyMenuItem;
-    @FXML
-    private MenuItem pasteMenuItem;
-    @FXML
-    private MenuItem selectAllMenuItem;
-
-    @FXML
     private Menu editMenu;
 
     @FXML

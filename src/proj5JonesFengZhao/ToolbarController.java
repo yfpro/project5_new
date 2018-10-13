@@ -29,7 +29,6 @@ import java.sql.SQLOutput;
  */
 public class ToolbarController {
     private CompileProcess compileProcess;
-    private Thread runThread;
     private Process process;
 
     /**
