@@ -1,5 +1,5 @@
 /*
-File: CompileProcess.java
+File: WorkingProcess.java
 CS361 Project 5
 Names: Yi Feng, Matt Jones, Danqing Zhao
 Date: 10/12/18
@@ -26,7 +26,7 @@ import java.io.OutputStream;
  * @since 10-10-2018
  */
 
-public class CompileProcess implements Runnable {
+public class WorkingProcess implements Runnable {
     private File curFile;
     private IOConsole console;
     private Button stopButton;
@@ -41,7 +41,7 @@ public class CompileProcess implements Runnable {
      * @param ifRun if ifRun is false, it only compiles the file
      *              if ifRun is true, it both compiles and runs the file
      */
-    CompileProcess(File curFile, IOConsole console, Button stopButton, boolean ifRun) {
+    WorkingProcess(File curFile, IOConsole console, Button stopButton, boolean ifRun) {
         this.curFile = curFile;
         this.console = console;
         this.ifRun = ifRun;
@@ -86,7 +86,7 @@ public class CompileProcess implements Runnable {
 
     /**
      * Builds a process using a ProcessBuilder. Starts the process and passes the
-     * InputStream and OutputStream to an IOConsole given by the console parameter.
+     * ErrorStream, InputStream and OutputStream to an IOConsole given by the console parameter.
      *
      * @param console Reference to an IOConsole that will be used for user input to the
      *                process. All output from the process will also be directed to the
