@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="- edit some comments">
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="comment">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/proj5JonesFengZhao/CompileProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/proj5JonesFengZhao/CompileProcess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/proj5JonesFengZhao/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/proj5JonesFengZhao/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/proj5JonesFengZhao/ToolbarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/proj5JonesFengZhao/ToolbarController.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -72,28 +69,28 @@
           <entry key="class" value="3" />
           <entry key="css" value="5" />
           <entry key="fxml" value="8" />
-          <entry key="java" value="39" />
+          <entry key="java" value="40" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="3" />
           <entry key="CSS" value="5" />
-          <entry key="JAVA" value="39" />
+          <entry key="JAVA" value="40" />
           <entry key="XML" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="fxml" value="120" />
-          <entry key="java" value="7373" />
-          <entry key="txt" value="401" />
+          <entry key="java" value="7601" />
+          <entry key="txt" value="440" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="7373" />
-          <entry key="PLAIN_TEXT" value="401" />
+          <entry key="JAVA" value="7601" />
+          <entry key="PLAIN_TEXT" value="440" />
           <entry key="XML" value="120" />
         </counts>
       </usages-collector>
@@ -140,15 +137,6 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/JavaCodeArea.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="33" column="13" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/EditMenuController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="332">
@@ -160,7 +148,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/CompileProcess.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
+            <state relative-caret-position="1470">
               <caret line="105" lean-forward="true" selection-start-line="105" selection-end-line="105" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -172,17 +160,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/ToolbarController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="478">
-              <caret line="60" column="19" selection-start-line="60" selection-start-column="19" selection-end-line="60" selection-end-column="19" />
+            <state relative-caret-position="227">
+              <caret line="70" column="54" selection-start-line="70" selection-start-column="54" selection-end-line="70" selection-end-column="54" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/UserErrorDialog.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="20" column="6" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/IOConsole.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-193">
-              <caret line="34" column="4" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="4" />
+            <state relative-caret-position="-222">
+              <caret line="33" column="54" selection-start-line="33" selection-start-column="54" selection-end-line="33" selection-end-column="54" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -203,10 +203,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="61">
+            <state relative-caret-position="-407">
               <caret line="204" column="69" selection-start-line="204" selection-start-column="69" selection-end-line="204" selection-end-column="69" />
               <folding>
                 <element signature="e#4685#4686#0" expanded="true" />
@@ -256,7 +256,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>handleclose</find>
       <find>tabhasunsavedchanges</find>
       <find>save</find>
       <find>getcurrent</find>
@@ -286,6 +285,7 @@
       <find>getChildren</find>
       <find>closeMe</find>
       <find>istabless</find>
+      <find>handlecomp</find>
     </findStrings>
   </component>
   <component name="FindManager">
@@ -303,14 +303,14 @@
         <option value="$PROJECT_DIR$/src/proj5JonesFengZhao/fileMenu.fxml" />
         <option value="$PROJECT_DIR$/src/proj5JonesFengZhao/CompileRunProcess.java" />
         <option value="$PROJECT_DIR$/src/proj5JonesFengZhao/ReadFromProcess.java" />
-        <option value="$PROJECT_DIR$/src/proj5JonesFengZhao/IOConsole.java" />
         <option value="$PROJECT_DIR$/src/proj5JonesFengZhao/ColoredCodeArea.java" />
         <option value="$PROJECT_DIR$/src/proj5JonesFengZhao/FileMenuController.java" />
         <option value="$PROJECT_DIR$/src/proj5JonesFengZhao/Main.fxml" />
         <option value="$PROJECT_DIR$/src/proj5JonesFengZhao/CompileProcess.java" />
         <option value="$PROJECT_DIR$/src/proj5JonesFengZhao/EditMenuController.java" />
-        <option value="$PROJECT_DIR$/src/proj5JonesFengZhao/ToolbarController.java" />
         <option value="$PROJECT_DIR$/src/proj5JonesFengZhao/Controller.java" />
+        <option value="$PROJECT_DIR$/src/proj5JonesFengZhao/ToolbarController.java" />
+        <option value="$PROJECT_DIR$/src/proj5JonesFengZhao/IOConsole.java" />
       </list>
     </option>
   </component>
@@ -322,8 +322,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="13" />
-    <option name="y" value="27" />
+    <option name="x" value="143" />
+    <option name="y" value="259" />
     <option name="width" value="1315" />
     <option name="height" value="873" />
   </component>
@@ -370,7 +370,7 @@
     <property name="OverrideImplement.combined" value="false" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Volumes/Transcend/Github/project5_new/src/proj5JonesFengZhao/ToolbarController.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539399222238" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539399670906" />
     <property name="dynamic.classpath" value="false" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -661,14 +661,28 @@
       <option name="project" value="LOCAL" />
       <updated>1539398173528</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="a lot of comment editing">
+      <created>1539399237467</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1539399237467</updated>
+    </task>
+    <task id="LOCAL-00012" summary="comment">
+      <created>1539399311103</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1539399311104</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="1302000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="13" y="27" width="1315" height="873" extended-state="0" />
+    <frame x="359" y="252" width="1315" height="873" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.15710919" />
@@ -756,7 +770,9 @@
     <MESSAGE value="debugged exit when tabless" />
     <MESSAGE value="- renamed ColoredCodeArea to JavaCodeArea&#10;- edit some comments" />
     <MESSAGE value="- edit some comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="- edit some comments" />
+    <MESSAGE value="a lot of comment editing" />
+    <MESSAGE value="comment" />
+    <option name="LAST_COMMIT_MESSAGE" value="comment" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -769,7 +785,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/proj5JonesFengZhao/ToolbarController.java</url>
-          <line>64</line>
+          <line>66</line>
           <properties />
           <option name="timeStamp" value="4" />
         </line-breakpoint>
@@ -840,16 +856,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/UserErrorDialog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="20" column="6" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/Main.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -867,30 +873,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/CompileProcess.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="105" lean-forward="true" selection-start-line="105" selection-end-line="105" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/FileMenuController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1461">
           <caret line="295" column="72" lean-forward="true" selection-start-line="295" selection-start-column="72" selection-end-line="295" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/IOConsole.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-193">
-          <caret line="34" column="4" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -920,6 +906,23 @@
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/ToolbarController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="70" column="54" selection-start-line="70" selection-start-column="54" selection-end-line="70" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/UserErrorDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="20" column="6" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/ReadFromProcess.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -927,20 +930,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/ToolbarController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="60" column="19" selection-start-line="60" selection-start-column="19" selection-end-line="60" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="61">
+        <state relative-caret-position="-407">
           <caret line="204" column="69" selection-start-line="204" selection-start-column="69" selection-end-line="204" selection-end-column="69" />
           <folding>
             <element signature="e#4685#4686#0" expanded="true" />
             <element signature="e#4746#4747#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/CompileProcess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1470">
+          <caret line="105" lean-forward="true" selection-start-line="105" selection-end-line="105" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/proj5JonesFengZhao/IOConsole.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-222">
+          <caret line="33" column="54" selection-start-line="33" selection-start-column="54" selection-end-line="33" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
