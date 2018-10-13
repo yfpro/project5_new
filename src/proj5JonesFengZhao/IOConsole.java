@@ -31,6 +31,7 @@ public class IOConsole extends StyleClassedTextArea {
 
     /**
      * Constructor
+     * When a key is typed, call handleKeyPress method
      */
     IOConsole() {
         this.userInput = "";
@@ -57,7 +58,7 @@ public class IOConsole extends StyleClassedTextArea {
 
     /**
      * write the user input the
-     * if failed, print out the error message in terminal
+     * if failed, print out the exception message in terminal
      */
     public void writeTo() {
         try {
