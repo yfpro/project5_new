@@ -64,16 +64,18 @@ public class ToolbarController {
      *
      */
     public void handleStop() {
-        this.process = this.compileProcess.getProcess();
-        if(this.process!=null) {
-            try {
-                process.getInputStream().close();
-                process.getOutputStream().close();
-                process.getErrorStream().close();
-                this.process.destroy();
+        if (this.compileProcess!=null) {
+            this.process = this.compileProcess.getProcess();
+            if (this.process != null) {
+                try {
+                    process.getInputStream().close();
+                    process.getOutputStream().close();
+                    process.getErrorStream().close();
+                    this.process.destroy();
 
-            } catch (IOException e) {
-                e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }

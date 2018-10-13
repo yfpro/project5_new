@@ -91,7 +91,6 @@ public class CompileProcess implements Runnable {
     public Process buildProcess(IOConsole console, String[] command) {
         try {
             ProcessBuilder pb = new ProcessBuilder(command);
-            pb.redirectErrorStream(true);
             Process process = pb.start();
 
             // let the console read from the process's error stream
