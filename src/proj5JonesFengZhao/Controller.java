@@ -281,6 +281,7 @@ public class Controller {
         // the compile and compile&run buttons are disabled when there is no tab
         compileButton.disableProperty().bind(listProperty.emptyProperty());
         compileRunButton.disableProperty().bind(listProperty.emptyProperty());
+        stopButton.setDisable(true);
 
 
         // add the console to the VBox at the bottom
